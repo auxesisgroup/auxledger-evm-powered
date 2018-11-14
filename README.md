@@ -237,8 +237,11 @@ Since there are situations where no response is needed or even desired, notifica
 * Enabling community contribution protocol repository
 
 ### Phase 4 - Hydra
+
 | Status - Ongoing | Projected Completion Date - Q4, 2020 |
 |  -----:----- | -----------:|
+
+
 *Status - Ongoing <div align="right">Projected Completion Date - Q4, 2020.</div>*
 
 * Full scale AVM supporting multi language scripting & defensive contract techniques
