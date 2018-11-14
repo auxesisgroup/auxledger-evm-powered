@@ -65,7 +65,7 @@ Transitioning towards developers, if you'd like to play around with creating Aux
 The console subcommand have the exact same meaning as above and they are equally useful on the testnet too. Please see above for their explanations if you've skipped to here.
 Specifying the --testnet flag however will reconfigure your Gaux instance a bit:
 
-- Instead of using the default data directory ( `~/.Auxledger` on Linux for example), Gaux will nest itself one level deeper into a testnet subfolder ( `~/.auxledger/testnet'` on Linux). Note, on OSX and Linux this also means that attaching to a running testnet node requires the use of a custom endpoint since gaux attach will try to attach to a production node endpoint by default. 
+- Instead of using the default data directory ( `~/.Auxledger` on Linux for example), Gaux will nest itself one level deeper into a testnet subfolder ( `~/.auxledger/testnet` on Linux). Note, on OSX and Linux this also means that attaching to a running testnet node requires the use of a custom endpoint since gaux attach will try to attach to a production node endpoint by default. 
 
 > E.g. gaux attach <datadir>/testnet/gaux.ipc. 
     
