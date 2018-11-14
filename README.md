@@ -240,7 +240,7 @@ Projected Completion Date - Q3,2019.*
 * Enabling community contribution protocol repository
 
 ### Phase 4 - Hydra
-*Status - Ongoing <p style="text-align: right;">Projected Completion Date - Q4, 2020.</p>*
+*Status - Ongoing <p align="right">Projected Completion Date - Q4, 2020.</p>*
 
 * Full scale AVM supporting multi language scripting & defensive contract techniques
 * Decentralize tiered network consensus protocol
