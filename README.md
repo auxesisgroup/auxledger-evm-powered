@@ -40,13 +40,13 @@ The Auxledger project comes with several wrappers/executables found in the ‘cm
 | `avm` | Developer utility version of the AVM (Auxledger Virtual Machine) that is capable of running bytecode snippets within a configurable environment and execution mode. Its purpose is to allow isolated, fine-grained debugging of EVM opcodes (e.g. `avm --code 60ff60ff --debug`). |
 | `gauxrpctest` | Developer utility tool to support our [auxledger/rpc-test](https://github.com/Auxledger/rpc-tests) test suite which validates baseline conformity to the [Auxledger JSON RPC](https://github.com/Auxledger/wiki/wiki/JSON-RPC) specs.
 | `rlpdump` | Developer utility tool to convert binary RLP (Recursive Length Prefix) dumps (data encoding used by the Auxledger protocol, both network as well as consensus wise) to user friendlier hierarchical representation. (e.g. rlpdump --hex CE0183FFFFFFC4C304050583616263) |
-| `swarm`    | Swarm daemon and tools. This is the entrypoint for the Swarm network. 'swarm --help' for command line options and subcommands. See Swarm README for more information. |
-| `puppeth`    | a CLI wizard that aids in creating a new Auxledger network. |
+| `swarm` | Swarm daemon and tools. This is the entrypoint for the Swarm network. 'swarm --help' for command line options and subcommands. See Swarm README for more information. |
+| `puppeth` | a CLI wizard that aids in creating a new Auxledger network. |
 
 ## Running gaux
 Pondering over all the command line flags is beyond the breadth for this piece of information, but we've enumerated a few common parameter combos to get you up to speed quickly on how you can run your own Gaux instance.
 
-###Full Node on the main Auxledger Network
+### Full Node on the main Auxledger Network
 
 By far the most common scenario is people wanting to simply interact with the Auxledger network: create accounts; transfer funds; deploy and interact with contracts. For this particular use-case the user doesn't need to care about years-old historical data, so we can fast-sync quickly to the current state of the network. To do so:
 
@@ -56,7 +56,7 @@ This command will:
     -Start gaux in fast sync mode (default, can be changed with the --syncmode flag), causing it to download more data in exchange for avoiding processing the entire history of the Auxledger network, which is very CPU intensive.
     -Start up Gaux's built-in interactive JavaScript console, (via the trailing console subcommand) through which you can invoke all official web3 methods as well as Gaux's own management APIs. This tool is optional and if you leave it out you can always attach to an already running Gaux instance with gaux attach.
     
-###Full node on the Auxledger test network
+### Full node on the Auxledger test network
 
 Transitioning towards developers, if you'd like to play around with creating Auxledger contracts, you almost certainly would like to do that without any real money involved until you get the hang of the entire system. In other words, instead of attaching to the main network, you want to join the test network with your node, which is fully equivalent to the main network. You can access the Auxledger test network at - [https://testnet.auxledger.org/#/](https://testnet.auxledger.org/#/)
 
@@ -72,81 +72,20 @@ Specifying the --testnet flag however will reconfigure your Gaux instance a bit:
 
     - Instead of connecting the main Auxledger network, the client will connect to the test network, which uses different P2P bootnodes, different network IDs and genesis states.
 
-Note: Although there are some internal protective measures to prevent transactions from crossing over between the main network and test network, you should make sure to always use separate accounts for play-money and real-money. Unless you manually move accounts, Geth will by default correctly separate the two networks and will not make any accounts available between them.
+*Note: Although there are some internal protective measures to prevent transactions from crossing over between the main network and test network, you should make sure to always use separate accounts for play-money and real-money. Unless you manually move accounts, Gaux will by default correctly separate the two networks and will not make any accounts available between them.*
 
-
-
-### Full node on the main Auxledger network
-
-By far the most common scenario is people wanting to simply interact with the Auxledger network:
-create accounts; transfer funds; deploy and interact with contracts. For this particular use-case
-the user doesn't care about years-old historical data, so we can fast-sync quickly to the current
-state of the network. To do so:
-
-```
-$ cd build/bin
-$ gaux console
-```
-
-This command will:
-
-* Start gaux in fast sync mode (default, can be changed with the `--syncmode` flag), causing it to
-   download more data in exchange for avoiding processing the entire history of the Auxledger network,
-   which is very CPU intensive.
-* Start up Gaux's built-in interactive [JavaScript console](https://github.com/Auxledger/go-Auxledger/wiki/JavaScript-Console),
-   (via the trailing `console` subcommand) through which you can invoke all official [`web3` methods](https://github.com/Auxledger/wiki/wiki/JavaScript-API) as well as Gaux's own [management APIs](https://github.com/Auxledger/go-Auxledger/wiki/Management-APIs). This tool is optional and if you leave it out you can always attach to an already running gaux instance
-   with `gaux attach`.
-
-### Full node on the Auxledger test network
-
-Transitioning towards developers, if you'd like to play around with creating Auxledger contracts, you
-almost certainly would like to do that without any real money involved until you get the hang of the
-entire system. In other words, instead of attaching to the main network, you want to join the **test**
-network with your node, which is fully equivalent to the main network, but with play-Ether only.
-
-```
-$ gaux --testnet console
-```
-
-The `console` subcommand have the exact same meaning as above and they are equally useful on the
-testnet too. Please see above for their explanations if you've skipped to here.
-
-Specifying the `--testnet` flag however will reconfigure your gaux instance a bit:
-
- * Instead of using the default data directory (`~/.Auxledger` on Linux for example), gaux will nest
-   itself one level deeper into a `testnet` subfolder (`~/.Auxledger/testnet` on Linux). Note, on OSX
-   and Linux this also means that attaching to a running testnet node requires the use of a custom
-   endpoint since `gaux attach` will try to attach to a production node endpoint by default. E.g.
-   `gaux attach <datadir>/testnet/gaux.ipc`. Windows users are not affected by this.
- * Instead of connecting the main Auxledger network, the client will connect to the test network,
-   which uses different P2P bootnodes, different network IDs and genesis states.
-   
-*Note: Although there are some internal protective measures to prevent transactions from crossing
-over between the main network and test network, you should make sure to always use separate accounts
-for play-money and real-money. Unless you manually move accounts, gaux will by default correctly
-separate the two networks and will not make any accounts available between them.*
-
-### Full node on the Rinkeby test network
-
-The above test network is a cross client one based on the ethash proof-of-work consensus algorithm. As such, it has certain extra overhead and is more susceptible to reorganization attacks due to the network's low difficulty / security. Go Auxledger also supports connecting to a proof-of-authority based test network called [*Rinkeby*](https://www.rinkeby.io) (operated by members of the community). This network is lighter, more secure, but is only supported by go-Auxledger.
-
-```
-$ gaux --rinkeby console
-```
 
 ### Configuration
 
-As an alternative to passing the numerous flags to the `gaux` binary, you can also pass a configuration file via:
+As an alternative to passing the numerous flags to the gaux binary, you can also pass a configuration file via:
 
-```
-$ gaux --config /path/to/your_config.toml
-```
+> $ gaux --config /path/to/your_config.toml
 
-To get an idea how the file should look like you can use the `dumpconfig` subcommand to export your existing configuration:
 
-```
-$ gaux --your-favourite-flags dumpconfig
-```
+To get an idea how the file should look like you can use the dumpconfig subcommand to export your existing configuration:
+
+> $ gaux --your-favourite-flags dumpconfig
+
 
 *Note: This works only with gaux v1.6.0 and above.*
 
@@ -154,39 +93,34 @@ $ gaux --your-favourite-flags dumpconfig
 
 One of the quickest ways to get Auxledger up and running on your machine is by using Docker:
 
-```
-docker run -d --name Auxledger-node -v /Users/alice/Auxledger:/root \
-           -p 8545:8545 -p 30303:30303 \
-           Auxledger/client-go
-```
+> docker run -d --name auxledger-node -v /Users/alice/auxledger:/root \
+>          -p 8545:8545 -p 30303:30303 \
+>          auxledger/client-go
 
-This will start gaux in fast-sync mode with a DB memory allowance of 1GB just as the above command does.  It will also create a persistent volume in your home directory for saving your blockchain as well as map the default ports. There is also an `alpine` tag available for a slim version of the image.
 
-Do not forget `--rpcaddr 0.0.0.0`, if you want to access RPC from other containers and/or hosts. By default, `gaux` binds to the local interface and RPC endpoints is not accessible from the outside.
+This will start gaux in fast-sync mode with a DB memory allowance of 1GB just as the above command does. It will also create a persistent volume in your home directory for saving your blockchain as well as map the default ports. There is also an `alpine` tag available for a slim version of the image.
+
+Do not forget `--rpcaddr 0.0.0.0`, if you want to access RPC from other containers and/or hosts. By default, gaux binds to the local interface and RPC endpoints is not accessible from the outside.
+
 
 ### Programatically interfacing gaux nodes
 
-As a developer, sooner rather than later you'll want to start interacting with gaux and the Auxledger
-network via your own programs and not manually through the console. To aid this, gaux has built-in
-support for a JSON-RPC based APIs ([standard APIs](https://github.com/Auxledger/wiki/wiki/JSON-RPC) and
-[gaux specific APIs](https://github.com/Auxledger/go-Auxledger/wiki/Management-APIs)). These can be
-exposed via HTTP, WebSockets and IPC (unix sockets on unix based platforms, and named pipes on Windows).
+As a developer, sooner rather than later you'll want to start interacting with Gaux and the Auxledger network via your own programs and not manually through the console. To aid this, Gaux has built-in support for a JSON-RPC based APIs (standard APIs and Gaux specific APIs). These can be exposed via HTTP, WebSockets and IPC (unix sockets on unix based platforms, and named pipes on Windows).
 
-The IPC interface is enabled by default and exposes all the APIs supported by gaux, whereas the HTTP
-and WS interfaces need to manually be enabled and only expose a subset of APIs due to security reasons.
-These can be turned on/off and configured as you'd expect.
+The IPC interface is enabled by default and exposes all the APIs supported by Gaux, whereas the HTTP and WS interfaces need to manually be enabled and only expose a subset of APIs due to security reasons. These can be turned on/off and configured as you'd expect.
+
 
 HTTP based JSON-RPC API options:
 
   * `--rpc` Enable the HTTP-RPC server
   * `--rpcaddr` HTTP-RPC server listening interface (default: "localhost")
   * `--rpcport` HTTP-RPC server listening port (default: 8545)
-  * `--rpcapi` API's offered over the HTTP-RPC interface (default: "eth,net,web3")
+  * `--rpcapi` API's offered over the HTTP-RPC interface (default: "aux,net,web3")
   * `--rpccorsdomain` Comma separated list of domains from which to accept cross origin requests (browser enforced)
   * `--ws` Enable the WS-RPC server
   * `--wsaddr` WS-RPC server listening interface (default: "localhost")
   * `--wsport` WS-RPC server listening port (default: 8546)
-  * `--wsapi` API's offered over the WS-RPC interface (default: "eth,net,web3")
+  * `--wsapi` API's offered over the WS-RPC interface (default: "aux,net,web3")
   * `--wsorigins` Origins from which to accept websockets requests
   * `--ipcdisable` Disable the IPC-RPC server
   * `--ipcapi` API's offered over the IPC-RPC interface (default: "admin,debug,eth,miner,net,personal,shh,txpool,web3")
