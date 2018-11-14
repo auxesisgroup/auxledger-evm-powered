@@ -240,7 +240,7 @@ Since there are situations where no response is needed or even desired, notifica
 
 | Status - Ongoing | Projected Completion Date - Q4, 2020 |
 
-|  -----:----- | -----------:|
+|  -----:----- | -----------: |
 
 
 *Status - Ongoing <div align="right">Projected Completion Date - Q4, 2020.</div>*
