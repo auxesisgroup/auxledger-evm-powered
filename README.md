@@ -1,4 +1,4 @@
-## Introduction
+## Auxledger
 
 Blockchain Technology has garnered immense interest for its wide range of use cases in Governments as well as private sector enterprises.We have observed billions of dollars being spent in building Blockchain powered applications and yet the mainstream adoption is very much limited. We see that the acute rise in Blockchain technology fogged the focus on its most important aspect – The infrastructure. Technology infrastructure plays a significant role while building a scalable platform. The infrastructure must provide sufficient level of flexibility for developers to choose and adopt core protocols for the platform while designing it. Also, the infrastructure must empower an application to allow high performance during its runtime execution.
 
@@ -229,7 +229,7 @@ Projected Completion Date - Q3,2019.*
 * Secure wallet and asset management.
 
 ### Phase 3 - Cetus
-*Status - Ongoing *
+*Status - Ongoing*
 
 *Projected Completion Date - Q2, 2020.*
 
@@ -240,8 +240,7 @@ Projected Completion Date - Q3,2019.*
 * Enabling community contribution protocol repository
 
 ### Phase 4 - Hydra
-*Status - Ongoing*
-*Projected Completion Date - Q4, 2020.*
+*Status - Ongoing <p style="text-align: right;">Projected Completion Date - Q4, 2020.</p>*
 
 * Full scale AVM supporting multi language scripting & defensive contract techniques
 * Decentralize tiered network consensus protocol
