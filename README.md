@@ -240,8 +240,8 @@ Since there are situations where no response is needed or even desired, notifica
 
 <table>
   <tr>
-    <th>Status - Ongoing</th>
-    <th>Projected Completion Date - Q4, 2020</th>
+    <td>Status - Ongoing</td>
+    <td align="right">Projected Completion Date - Q4, 2020</td>
   </tr>
 </table>
 
