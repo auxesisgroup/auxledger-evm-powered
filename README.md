@@ -37,8 +37,6 @@ The Auxledger project comes with several wrappers/executables found in the ‘cm
 | **`gaux`** | It is the entry point into the Auxledger network (main-, test- or private net), capable of running as a full node (default), archive node (retaining all historical state) or a light node (retrieving data live). It can be used by other processes as a gateway into the Auxledger network via JSON RPC endpoints exposed on top of HTTP, WebSocket and/or IPC transports. Read more on our wiki page - [https://wiki.auxledger.org/](https://wiki.auxledger.org/) |
 | `abigen` | Source code generator to convert Auxledger contract definitions into easy to use, compile-time type-safe Go packages. It operates on plain Auxledger contract ABIs with expanded functionality if the contract bytecode is also available. However it also accepts Solidity source files, making development much more streamlined. See our wiki page for for details - [https://wiki.auxledger.org/](https://wiki.auxledger.org/) | 
 | `bootnode` | Stripped down version of our Auxledger client implementation that only takes part in the network node discovery protocol, but does not run any of the higher level application protocols. It can be used as a lightweight bootstrap node to aid in finding peers in private networks. |
-| `avm` | Developer utility version of the AVM (Auxledger Virtual Machine) that is capable of running bytecode snippets within a configurable environment and execution mode. Its purpose is to allow isolated, fine-grained debugging of EVM opcodes (e.g. `avm --code 60ff60ff --debug`). |
-| `gauxrpctest` | Developer utility tool to support our [auxledger/rpc-test](https://github.com/Auxledger/rpc-tests) test suite which validates baseline conformity to the [Auxledger JSON RPC](https://github.com/Auxledger/wiki/wiki/JSON-RPC) specs.
 | `rlpdump` | Developer utility tool to convert binary RLP (Recursive Length Prefix) dumps (data encoding used by the Auxledger protocol, both network as well as consensus wise) to user friendlier hierarchical representation. (e.g. rlpdump --hex CE0183FFFFFFC4C304050583616263) |
 | `swarm` | Swarm daemon and tools. This is the entrypoint for the Swarm network. 'swarm --help' for command line options and subcommands. See Swarm README for more information. |
 | `puppeth` | a CLI wizard that aids in creating a new Auxledger network. |
@@ -46,21 +44,11 @@ The Auxledger project comes with several wrappers/executables found in the ‘cm
 ## Running gaux
 Pondering over all the command line flags is beyond the breadth for this piece of information, but we've enumerated a few common parameter combos to get you up to speed quickly on how you can run your own Gaux instance.
 
-### Full Node on the main Auxledger Network
-
-By far the most common scenario is people wanting to simply interact with the Auxledger network: create accounts; transfer funds; deploy and interact with contracts. For this particular use-case the user doesn't need to care about years-old historical data, so we can fast-sync quickly to the current state of the network. To do so:
-
-> $ gaux console
-
-This command will:
-    -Start gaux in fast sync mode (default, can be changed with the --syncmode flag), causing it to download more data in exchange for avoiding processing the entire history of the Auxledger network, which is very CPU intensive.
-    -Start up Gaux's built-in interactive JavaScript console, (via the trailing console subcommand) through which you can invoke all official web3 methods as well as Gaux's own management APIs. This tool is optional and if you leave it out you can always attach to an already running Gaux instance with gaux attach.
-    
 ### Full node on the Auxledger test network
 
 Transitioning towards developers, if you'd like to play around with creating Auxledger contracts, you almost certainly would like to do that without any real money involved until you get the hang of the entire system. In other words, instead of attaching to the main network, you want to join the test network with your node, which is fully equivalent to the main network. You can access the Auxledger test network at - [https://testnet.auxledger.org/#/](https://testnet.auxledger.org/#/)
 
-> $ gaux --testnet console
+> $ gaux console
 
 The console subcommand have the exact same meaning as above and they are equally useful on the testnet too. Please see above for their explanations if you've skipped to here.
 Specifying the --testnet flag however will reconfigure your Gaux instance a bit:
@@ -89,19 +77,6 @@ To get an idea how the file should look like you can use the dumpconfig subcomma
 
 
 *Note: This works only with gaux v1.6.0 and above.*
-
-#### Docker quick start
-
-One of the quickest ways to get Auxledger up and running on your machine is by using Docker:
-
-> docker run -d --name auxledger-node -v /Users/alice/auxledger:/root \
->          -p 8545:8545 -p 30303:30303 \
->          auxledger/client-go
-
-
-This will start gaux in fast-sync mode with a DB memory allowance of 1GB just as the above command does. It will also create a persistent volume in your home directory for saving your blockchain as well as map the default ports. There is also an `alpine` tag available for a slim version of the image.
-
-Do not forget `--rpcaddr 0.0.0.0`, if you want to access RPC from other containers and/or hosts. By default, gaux binds to the local interface and RPC endpoints is not accessible from the outside.
 
 
 ### Programatically interfacing gaux nodes
@@ -184,7 +159,7 @@ $ bootnode --genkey=boot.key
 $ bootnode --nodekey=boot.key
 ```
 
-With the bootnode online, it will display an [`enode` URL](https://github.com/Auxledger/wiki/wiki/enode-url-format) that other nodes can use to connect to it and exchange peer information. Make sure to replace the displayed IP address information (most probably `[::]`) with your externally accessible IP to get the actual `enode` URL.
+With the bootnode online, it will display an [`enode` URL] that other nodes can use to connect to it and exchange peer information. Make sure to replace the displayed IP address information (most probably `[::]`) with your externally accessible IP to get the actual `enode` URL.
 
 *Note: You could also use a full fledged Gaux node as a bootnode, but it's the less recommended way.*
 
@@ -214,7 +189,7 @@ Which will start mining blocks and transactions on a single CPU thread, creditin
 JSON-RPC is a remote procedure call protocol encoded in JSON. It is a very simple protocol (and very similar to XML-RPC), defining only a few data types and commands. JSON-RPC allows for notifications (data sent to the server that does not require a response) and for multiple calls to be sent to the server which may be answered out of order. 
 
 JSON-RPC works by sending a request to a server implementing this protocol. The client in that case is typically software intending to call a single method of a remote system. Multiple input parameters can be passed to the remote method as an array or object, whereas the method itself can return multiple output data as well. (This depends on the implemented version.
-All transfer types are single objects, serialized using JSON.[1] A request is a call to a specific method provided by a remote system. It must contain three certain properties:method -
+All transfer types are single objects, serialized using JSON. A request is a call to a specific method provided by a remote system. It must contain three certain properties:method -
 
 * A String with the name of the method to be invoked.
 * params - An Object or Array of values to be passed as parameters to the defined method.
