@@ -238,15 +238,12 @@ Since there are situations where no response is needed or even desired, notifica
 
 ### Phase 4 - Hydra
 
-<table>
+<table border="0">
   <tr>
     <td>Status - Ongoing</td>
     <td align="right">Projected Completion Date - Q4, 2020</td>
   </tr>
 </table>
-
-
-*Status - Ongoing <div align="right">Projected Completion Date - Q4, 2020.</div>*
 
 * Full scale AVM supporting multi language scripting & defensive contract techniques
 * Decentralize tiered network consensus protocol
