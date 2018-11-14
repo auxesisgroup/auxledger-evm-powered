@@ -240,7 +240,6 @@ Projected Completion Date - Q2, 2020.*
 
 ### Phase 4 - Hydra
 *Status - Ongoing*
-
 *Projected Completion Date - Q4, 2020.*
 
 * Full scale AVM supporting multi language scripting & defensive contract techniques
