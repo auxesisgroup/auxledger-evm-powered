@@ -50,17 +50,6 @@ Transitioning towards developers, if you'd like to play around with creating Aux
 
 > $ gaux console
 
-The console subcommand have the exact same meaning as above and they are equally useful on the testnet too. Please see above for their explanations if you've skipped to here.
-Specifying the --testnet flag however will reconfigure your Gaux instance a bit:
-
-- Instead of using the default data directory ( `~/.Auxledger` on Linux for example), Gaux will nest itself one level deeper into a testnet subfolder ( `~/.auxledger/testnet` on Linux). Note, on OSX and Linux this also means that attaching to a running testnet node requires the use of a custom endpoint since gaux attach will try to attach to a production node endpoint by default. 
-
-> E.g. gaux attach <datadir>/testnet/gaux.ipc. 
-    
-Windows users are not affected by this.
-
-* Instead of connecting the main Auxledger network, the client will connect to the test network, which uses different P2P bootnodes, different network IDs and genesis states.
-
 *Note: Although there are some internal protective measures to prevent transactions from crossing over between the main network and test network, you should make sure to always use separate accounts for play-money and real-money. Unless you manually move accounts, Gaux will by default correctly separate the two networks and will not make any accounts available between them.*
 
 
@@ -91,15 +80,15 @@ HTTP based JSON-RPC API options:
   * `--rpc` Enable the HTTP-RPC server
   * `--rpcaddr` HTTP-RPC server listening interface (default: "localhost")
   * `--rpcport` HTTP-RPC server listening port (default: 8545)
-  * `--rpcapi` API's offered over the HTTP-RPC interface (default: "eth,net,web3")
+  * `--rpcapi` API's offered over the HTTP-RPC interface 
   * `--rpccorsdomain` Comma separated list of domains from which to accept cross origin requests (browser enforced)
   * `--ws` Enable the WS-RPC server
   * `--wsaddr` WS-RPC server listening interface (default: "localhost")
   * `--wsport` WS-RPC server listening port (default: 8546)
-  * `--wsapi` API's offered over the WS-RPC interface (default: "eth,net,web3")
+  * `--wsapi` API's offered over the WS-RPC interface
   * `--wsorigins` Origins from which to accept websockets requests
   * `--ipcdisable` Disable the IPC-RPC server
-  * `--ipcapi` API's offered over the IPC-RPC interface (default: "admin,debug,eth,miner,net,personal,shh,txpool,web3")
+  * `--ipcapi` API's offered over the IPC-RPC interface 
   * `--ipcpath` Filename for IPC socket/pipe within the datadir (explicit paths escape it)
 
 You'll need to use your own programming environments' capabilities (libraries, tools, etc) to connect via HTTP, WS or IPC to a gaux node configured with the above flags and you'll need to speak [JSON-RPC](http://www.jsonrpc.org/specification) on all transports. You can reuse the same connection for multiple requests!
