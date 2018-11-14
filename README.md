@@ -1,38 +1,78 @@
-## Go Auxledger
+## Introduction
 
-Official golang implementation of the Auxledger protocol.
+Blockchain Technology has garnered immense interest for its wide range of use cases in Governments as well as private sector enterprises.We have observed billions of dollars being spent in building Blockchain powered applications and yet the mainstream adoption is very much limited. We see that the acute rise in Blockchain technology fogged the focus on its most important aspect – The infrastructure. Technology infrastructure plays a significant role while building a scalable platform. The infrastructure must provide sufficient level of flexibility for developers to choose and adopt core protocols for the platform while designing it. Also, the infrastructure must empower an application to allow high performance during its runtime execution.
 
+Auxesis Group, established in 2014, pioneers in building enterprise Blockchain solutions and is one of The Top 100 Most Influential Blockchain Organizations worldwide. Auxesis commenced ‘Auxledger project’ internally in 2017, with the idea of implementing blockchain network for the world’s largest democracy, India and to act as value chain for its economy by enabling trust, transparency and efficiency in various business processes. 
 
+The team at Auxledger overviewed hundreds of Blockchain implementations across the globe to come up with a comprehensive platform which would be necessary to power the decentralized internet of tomorrow. Concluding our research, apart from numerous enhancements, we found three key elements which are the deciding factors for building Blockchain for mainstream adoption. 
+The three key elements are:
+
+*Customizability: The customization flexibility offered by a platform to meet the needs of the developer as well as that of a business. Granting full access to adopt different protocols suiting a particular design of a private/public Blockchain network.
+
+*Performance: The ability of Blockchain networks and distributed applications to match up to today’s fast paced world, i.e.; sending information and processing transactions on real-time basis.
+
+*Interoperability: Blockchain networks with different protocols and different sizes should be able to communicate to one-another in a trust-free manner. A communication protocol which sets a global standard of communication between networks without compromising on data integrity
+
+Auxledger team has devised a platform and technology infrastructure that overcomes the requirements of customizability, performance and interoperability.
+For application use-cases of Auxledger Infrastructure you can refer to https://wiki.auxledger.org/
 
 ## Building the source
 
+For prerequisites and detailed build instructions please read the installation instructions on the wiki.
+Building gaux requires both a Go (version 1.7 or later) and a C compiler. You can install them using your favourite package manager. 
 
-Building gaux requires both a Go (version 1.7 or later) and a C compiler.
-You can install them using your favourite package manager.
 Once the dependencies are installed, run
 
-    make gaux
+> make gaux
 
 or, to build the full suite of utilities:
-
-    make all
+> make all
 
 ## Executables
 
-The go-auxledger project comes with several wrappers/executables found in the `cmd` directory.
+The Auxledger project comes with several wrappers/executables found in the ‘cmd’ directory.
 
 | Command    | Description |
 |:----------:|-------------|
-| **`gaux`** | Our main Auxledger CLI client. It is the entry point into the Auxledger network (main-, test- or private net), capable of running as a full node (default), archive node (retaining all historical state) or a light node (retrieving data live). It can be used by other processes as a gateway into the Auxledger network via JSON RPC endpoints exposed on top of HTTP, WebSocket and/or IPC transports. `gaux --help`  for command line options. |
-| `abigen` | Source code generator to convert Auxledger contract definitions into easy to use, compile-time type-safe Go packages. It operates on plain [Auxledger contract ABIs](https://github.com/Auxledger/wiki/wiki/Auxledger-Contract-ABI) with expanded functionality if the contract bytecode is also available. However it also accepts Solidity source files, making development much more streamlined. 
+| **`gaux`** | It is the entry point into the Auxledger network (main-, test- or private net), capable of running as a full node (default), archive node (retaining all historical state) or a light node (retrieving data live). It can be used by other processes as a gateway into the Auxledger network via JSON RPC endpoints exposed on top of HTTP, WebSocket and/or IPC transports.
+Read more on our wiki page - [https://wiki.auxledger.org/](https://wiki.auxledger.org/) |
+| `abigen` | Source code generator to convert Auxledger contract definitions into easy to use, compile-time type-safe Go packages. It operates on plain Auxledger contract ABIs with expanded functionality if the contract bytecode is also available. However it also accepts Solidity source files, making development much more streamlined.
+See our wiki page for for details - [https://wiki.auxledger.org/](https://wiki.auxledger.org/) | 
 | `bootnode` | Stripped down version of our Auxledger client implementation that only takes part in the network node discovery protocol, but does not run any of the higher level application protocols. It can be used as a lightweight bootstrap node to aid in finding peers in private networks. |
 | `avm` | Developer utility version of the AVM (Auxledger Virtual Machine) that is capable of running bytecode snippets within a configurable environment and execution mode. Its purpose is to allow isolated, fine-grained debugging of EVM opcodes (e.g. `avm --code 60ff60ff --debug`). |
 | `gauxrpctest` | Developer utility tool to support our [auxledger/rpc-test](https://github.com/Auxledger/rpc-tests) test suite which validates baseline conformity to the [Auxledger JSON RPC](https://github.com/Auxledger/wiki/wiki/JSON-RPC) specs.
-| `rlpdump` | Developer utility tool to convert binary RLP ([Recursive Length Prefix](https://github.com/Auxledger/wiki/wiki/RLP)) dumps (data encoding used by the Auxledger protocol both network as well as consensus wise) to user friendlier hierarchical representation (e.g. `rlpdump --hex CE0183FFFFFFC4C304050583616263`). |
-| `swarm`    | Swarm daemon and tools. This is the entrypoint for the Swarm network. `swarm --help` for command line options and subcommands. See [Swarm README](https://github.com/Auxledger/go-Auxledger/tree/master/swarm) for more information. |
+| `rlpdump` | Developer utility tool to convert binary RLP (Recursive Length Prefix) dumps (data encoding used by the Auxledger protocol, both network as well as consensus wise) to user friendlier hierarchical representation.
+(e.g. rlpdump --hex CE0183FFFFFFC4C304050583616263) |
+| `swarm`    | Swarm daemon and tools. This is the entrypoint for the Swarm network. 'swarm --help' for command line options and subcommands. See Swarm README for more information. |
 | `puppeth`    | a CLI wizard that aids in creating a new Auxledger network. |
 
 ## Running gaux
+Pondering over all the command line flags is beyond the breadth for this piece of information, but we've enumerated a few common parameter combos to get you up to speed quickly on how you can run your own Gaux instance.
+
+###Full Node on the main Auxledger Network
+By far the most common scenario is people wanting to simply interact with the Auxledger network: create accounts; transfer funds; deploy and interact with contracts. For this particular use-case the user doesn't need to care about years-old historical data, so we can fast-sync quickly to the current state of the network. To do so:
+
+> Command - $ gaux console
+
+This command will:
+    -Start gaux in fast sync mode (default, can be changed with the --syncmode flag), causing it to download more data in exchange for avoiding processing the entire history of the Auxledger network, which is very CPU intensive.
+    -Start up Gaux's built-in interactive JavaScript console, (via the trailing console subcommand) through which you can invoke all official web3 methods as well as Gaux's own management APIs. This tool is optional and if you leave it out you can always attach to an already running Gaux instance with gaux attach.
+    
+###Full node on the Auxledger test network
+Transitioning towards developers, if you'd like to play around with creating Auxledger contracts, you almost certainly would like to do that without any real money involved until you get the hang of the entire system. In other words, instead of attaching to the main network, you want to join the test network with your node, which is fully equivalent to the main network. You can access the Auxledger test network at - [https://testnet.auxledger.org/#/](https://testnet.auxledger.org/#/)
+
+> Command - $ gaux --testnet console
+
+The console subcommand have the exact same meaning as above and they are equally useful on the testnet too. Please see above for their explanations if you've skipped to here.
+Specifying the --testnet flag however will reconfigure your Gaux instance a bit:
+    -Instead of using the default data directory (~/.Auxledger on Linux for example), Gaux will nest itself one level deeper into a testnet subfolder (~/.auxledger/testnet on Linux). Note, on OSX and Linux this also means that attaching to a running testnet node requires the use of a custom endpoint since gaux attach will try to attach to a production node endpoint by default. 
+> E.g. gaux attach <datadir>/testnet/gaux.ipc. 
+Windows users are not affected by this.
+
+-Instead of connecting the main Auxledger network, the client will connect to the test network, which uses different P2P bootnodes, different network IDs and genesis states.
+
+Note: Although there are some internal protective measures to prevent transactions from crossing over between the main network and test network, you should make sure to always use separate accounts for play-money and real-money. Unless you manually move accounts, Geth will by default correctly separate the two networks and will not make any accounts available between them.
+
 
 
 ### Full node on the main Auxledger network
@@ -49,13 +89,11 @@ $ gaux console
 
 This command will:
 
- * Start gaux in fast sync mode (default, can be changed with the `--syncmode` flag), causing it to
+* Start gaux in fast sync mode (default, can be changed with the `--syncmode` flag), causing it to
    download more data in exchange for avoiding processing the entire history of the Auxledger network,
    which is very CPU intensive.
- * Start up Gaux's built-in interactive [JavaScript console](https://github.com/Auxledger/go-Auxledger/wiki/JavaScript-Console),
-   (via the trailing `console` subcommand) through which you can invoke all official [`web3` methods](https://github.com/Auxledger/wiki/wiki/JavaScript-API)
-   as well as Gaux's own [management APIs](https://github.com/Auxledger/go-Auxledger/wiki/Management-APIs).
-   This tool is optional and if you leave it out you can always attach to an already running gaux instance
+* Start up Gaux's built-in interactive [JavaScript console](https://github.com/Auxledger/go-Auxledger/wiki/JavaScript-Console),
+   (via the trailing `console` subcommand) through which you can invoke all official [`web3` methods](https://github.com/Auxledger/wiki/wiki/JavaScript-API) as well as Gaux's own [management APIs](https://github.com/Auxledger/go-Auxledger/wiki/Management-APIs). This tool is optional and if you leave it out you can always attach to an already running gaux instance
    with `gaux attach`.
 
 ### Full node on the Auxledger test network
