@@ -229,7 +229,9 @@ Projected Completion Date - Q3,2019.*
 * Secure wallet and asset management.
 
 ### Phase 3 - Cetus
-*Status - Ongoing                                                                               Projected Completion Date - Q2, 2020.*
+*Status - Ongoing *
+
+*Projected Completion Date - Q2, 2020.*
 
 * Auxledger Virtual Machine implementing higher degree of fault tolerance
 * CLI enabled SDK and API’s for networks tiering
