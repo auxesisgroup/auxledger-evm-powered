@@ -218,7 +218,7 @@ Since there are situations where no response is needed or even desired, notifica
 
 ### Phase 2 - Draco
 *Status - Ongoing
-Projected Completion Date - Q3,2019.*
+<p align="right">Projected Completion Date - Q3,2019.</p>*
 
 * Enterprise public network launch
 * Hybrid Tendermint DPOS Consensus
@@ -229,9 +229,7 @@ Projected Completion Date - Q3,2019.*
 * Secure wallet and asset management.
 
 ### Phase 3 - Cetus
-*Status - Ongoing*
-
-*Projected Completion Date - Q2, 2020.*
+*Status - Ongoing <p align="right">Projected Completion Date - Q2, 2020.</p>*
 
 * Auxledger Virtual Machine implementing higher degree of fault tolerance
 * CLI enabled SDK and API’s for networks tiering
