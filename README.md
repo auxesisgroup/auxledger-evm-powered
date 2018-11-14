@@ -217,7 +217,7 @@ Since there are situations where no response is needed or even desired, notifica
 * Easy private Blockchain network deployment
 
 ### Phase 2 - Draco
-*Status - Ongoing <right>Projected Completion Date - Q3,2019.</right>*
+*Status - Ongoing <div align="right">Projected Completion Date - Q3,2019.</div>*
 
 * Enterprise public network launch
 * Hybrid Tendermint DPOS Consensus
@@ -228,7 +228,7 @@ Since there are situations where no response is needed or even desired, notifica
 * Secure wallet and asset management.
 
 ### Phase 3 - Cetus
-*Status - Ongoing <align="right">Projected Completion Date - Q2, 2020.</align>*
+*Status - Ongoing <div align="right">Projected Completion Date - Q2, 2020.</div>*
 
 * Auxledger Virtual Machine implementing higher degree of fault tolerance
 * CLI enabled SDK and API’s for networks tiering
@@ -237,7 +237,7 @@ Since there are situations where no response is needed or even desired, notifica
 * Enabling community contribution protocol repository
 
 ### Phase 4 - Hydra
-*Status - Ongoing <p align="right">Projected Completion Date - Q4, 2020.</p>*
+*Status - Ongoing <div align="right">Projected Completion Date - Q4, 2020.</div>*
 
 * Full scale AVM supporting multi language scripting & defensive contract techniques
 * Decentralize tiered network consensus protocol
