@@ -1,6 +1,6 @@
 ## Auxledger
 
-Blockchain Technology has garnered immense interest for its wide range of use cases in Governments as well as private sector enterprises.We have observed billions of dollars being spent in building Blockchain powered applications and yet the mainstream adoption is very much limited. We see that the acute rise in Blockchain technology fogged the focus on its most important aspect – The infrastructure. Technology infrastructure plays a significant role while building a scalable platform. The infrastructure must provide sufficient level of flexibility for developers to choose and adopt core protocols for the platform while designing it. Also, the infrastructure must empower an application to allow high performance during its runtime execution.
+Blockchain Technology has garnered immense interest for its wide range of use cases in Governments as well as private sector enterprises. We have observed billions of dollars being spent in building Blockchain powered applications and yet the mainstream adoption is very much limited. We see that the acute rise in Blockchain technology fogged the focus on its most important aspect – The infrastructure. Technology infrastructure plays a significant role while building a scalable platform. The infrastructure must provide sufficient level of flexibility for developers to choose and adopt core protocols for the platform while designing it. Also, the infrastructure must empower an application to allow high performance during its runtime execution.
 
 Auxesis Group, established in 2014, pioneers in building enterprise Blockchain solutions and is one of The Top 100 Most Influential Blockchain Organizations worldwide. Auxesis commenced ‘Auxledger project’ internally in 2017, with the idea of implementing blockchain network for the world’s largest democracy, India and to act as value chain for its economy by enabling trust, transparency and efficiency in various business processes. 
 
@@ -106,17 +106,17 @@ First, you'll need to create the genesis state of your networks, which all nodes
 ```
 {
   "config": {
-        "chainId": 0,
+        "chainId": 5,
         "homesteadBlock": 0,
         "eip155Block": 0,
         "eip158Block": 0
     },
   "alloc"      : {},
   "coinbase"   : "0x0000000000000000000000000000000000000000",
-  "difficulty" : "0x20000",
+  "difficulty" : "0x18000",
   "extraData"  : "",
   "gasLimit"   : "0x2fefd8",
-  "nonce"      : "0x0000000000000042",
+  "nonce"      : "0x0000001598000042",
   "mixhash"    : "0x0000000000000000000000000000000000000000000000000000000000000000",
   "parentHash" : "0x0000000000000000000000000000000000000000000000000000000000000000",
   "timestamp"  : "0x00"
@@ -168,7 +168,7 @@ Mining on the public Auxledger network is a complex task as it's only feasible u
 In a private network setting however, a single CPU miner instance is more than enough for practical purposes as it can produce a stable stream of blocks at the correct intervals without needing heavy resources (consider running on a single thread, no need for multiple ones either). To start a Gaux instance for mining, run it with all your usual flags, extended by:
 
 ```
-$ gaux <usual-flags> --mine --minerthreads=1 --etherbase=0x0000000000000000000000000000000000000000
+$ gaux <usual-flags> --mine --minerthreads=1 --etherbase=0x0000000000000000000000000000000000740000
 ```
 
 Which will start mining blocks and transactions on a single CPU thread, crediting all proceedings to the account specified by `--etherbase`. You can further tune the mining by changing the default gas limit blocks converge to (`--targetgaslimit`) and the price transactions are accepted at (`--gasprice`).
