@@ -127,25 +127,19 @@ HTTP based JSON-RPC API options:
   * `--ipcpath` Filename for IPC socket/pipe within the datadir (explicit paths escape it)
 
 You'll need to use your own programming environments' capabilities (libraries, tools, etc) to connect
-via HTTP, WS or IPC to a gaux node configured with the above flags and you'll need to speak [JSON-RPC](http://www.jsonrpc.org/specification)
-on all transports. You can reuse the same connection for multiple requests!
+via HTTP, WS or IPC to a gaux node configured with the above flags and you'll need to speak [JSON-RPC](http://www.jsonrpc.org/specification) on all transports. You can reuse the same connection for multiple requests!
 
-**Note: Please understand the security implications of opening up an HTTP/WS based transport before
-doing so! Hackers on the internet are actively trying to subvert Auxledger nodes with exposed APIs!
-Further, all browser tabs can access locally running webservers, so malicious webpages could try to
-subvert locally available APIs!**
+**Note: Please understand the security implications of opening up an HTTP/WS based transport before doing so! Hackers on the internet are actively trying to subvert Auxledger nodes with exposed APIs! Further, all browser tabs can access locally running web servers, so malicious web pages could try to subvert locally available APIs**
 
 ### Operating a private network
 
-Maintaining your own private network is more involved as a lot of configurations taken for granted in
-the official networks need to be manually set up.
+Maintaining your own private network is more involved as a lot of configurations taken for granted in the official networks need to be manually set up.
 
 #### Defining the private genesis state
 
-First, you'll need to create the genesis state of your networks, which all nodes need to be aware of
-and agree upon. This consists of a small JSON file (e.g. call it `genesis.json`):
+First, you'll need to create the genesis state of your networks, which all nodes need to be aware of and agree upon. This consists of a small JSON file (e.g. call it `genesis.json`):
 
-```json
+```
 {
   "config": {
         "chainId": 0,
@@ -165,20 +159,16 @@ and agree upon. This consists of a small JSON file (e.g. call it `genesis.json`)
 }
 ```
 
-The above fields should be fine for most purposes, although we'd recommend changing the `nonce` to
-some random value so you prevent unknown remote nodes from being able to connect to you. If you'd
-like to pre-fund some accounts for easier testing, you can populate the `alloc` field with account
-configs:
+The above fields should be fine for most purposes, although we'd recommend changing the nonce to some random value so you prevent unknown remote nodes from being able to connect to you. If you'd like to pre-fund some accounts for easier testing, you can populate the alloc field with account configs:
 
-```json
+```
 "alloc": {
   "0x0000000000000000000000000000000000000001": {"balance": "111111111"},
   "0x0000000000000000000000000000000000000002": {"balance": "222222222"}
 }
 ```
 
-With the genesis state defined in the above JSON file, you'll need to initialize **every** gaux node
-with it prior to starting it up to ensure all blockchain parameters are correctly set:
+With the genesis state defined in the above JSON file, you'll need to initialize **every** gaux node with it prior to starting it up to ensure all blockchain parameters are correctly set:
 
 ```
 $ gaux init path/to/genesis.json
@@ -186,55 +176,62 @@ $ gaux init path/to/genesis.json
 
 #### Creating the rendezvous point
 
-With all nodes that you want to run initialized to the desired genesis state, you'll need to start a
-bootstrap node that others can use to find each other in your network and/or over the internet. The
-clean way is to configure and run a dedicated bootnode:
+With all nodes that you want to run initialized to the desired genesis state, you'll need to start a bootstrap node that others can use to find each other in your network and/or over the internet. The clean way is to configure and run a dedicated bootnode:
+
 
 ```
 $ bootnode --genkey=boot.key
 $ bootnode --nodekey=boot.key
 ```
 
-With the bootnode online, it will display an [`enode` URL](https://github.com/Auxledger/wiki/wiki/enode-url-format)
-that other nodes can use to connect to it and exchange peer information. Make sure to replace the
-displayed IP address information (most probably `[::]`) with your externally accessible IP to get the
-actual `enode` URL.
+With the bootnode online, it will display an [`enode` URL](https://github.com/Auxledger/wiki/wiki/enode-url-format) that other nodes can use to connect to it and exchange peer information. Make sure to replace the displayed IP address information (most probably `[::]`) with your externally accessible IP to get the actual `enode` URL.
 
-*Note: You could also use a full fledged gaux node as a bootnode, but it's the less recommended way.*
+*Note: You could also use a full fledged Geth node as a bootnode, but it's the less recommended way.*
 
 #### Starting up your member nodes
 
-With the bootnode operational and externally reachable (you can try `telnet <ip> <port>` to ensure
-it's indeed reachable), start every subsequent gaux node pointed to the bootnode for peer discovery
-via the `--bootnodes` flag. It will probably also be desirable to keep the data directory of your
-private network separated, so do also specify a custom `--datadir` flag.
+With the bootnode operational and externally reachable (you can try `telnet <ip> <port>` to ensure it's indeed reachable), start every subsequent gaux node pointed to the bootnode for peer discovery via the `--bootnodes` flag. It will probably also be desirable to keep the data directory of your private network separated, so do also specify a custom `--datadir` flag.
 
 ```
 $ gaux --datadir=path/to/custom/data/folder --bootnodes=<bootnode-enode-url-from-above>
 ```
 
-*Note: Since your network will be completely cut off from the main and test networks, you'll also
-need to configure a miner to process transactions and create new blocks for you.*
+*Note: Since your network will be completely cut off from the main and test networks, you'll also need to configure a miner to process transactions and create new blocks for you.*
 
 #### Running a private miner
 
-Mining on the public Auxledger network is a complex task as it's only feasible using GPUs, requiring
-an OpenCL or CUDA enabled `ethminer` instance. For information on such a setup, please consult the
-[EtherMining subreddit](https://www.reddit.com/r/EtherMining/) and the [Genoil miner](https://github.com/Genoil/cpp-Auxledger)
-repository.
-
-In a private network setting however, a single CPU miner instance is more than enough for practical
-purposes as it can produce a stable stream of blocks at the correct intervals without needing heavy
-resources (consider running on a single thread, no need for multiple ones either). To start a gaux
-instance for mining, run it with all your usual flags, extended by:
+Mining on the public Auxledger network is a complex task as it's only feasible using GPUs, requiring an OpenCL or CUDA enabled ethminer instance.
+In a private network setting however, a single CPU miner instance is more than enough for practical purposes as it can produce a stable stream of blocks at the correct intervals without needing heavy resources (consider running on a single thread, no need for multiple ones either). To start a Geth instance for mining, run it with all your usual flags, extended by:
 
 ```
 $ gaux <usual-flags> --mine --minerthreads=1 --etherbase=0x0000000000000000000000000000000000000000
 ```
 
-Which will start mining blocks and transactions on a single CPU thread, crediting all proceedings to
-the account specified by `--etherbase`. You can further tune the mining by changing the default gas
-limit blocks converge to (`--targetgaslimit`) and the price transactions are accepted at (`--gasprice`).
+Which will start mining blocks and transactions on a single CPU thread, crediting all proceedings to the account specified by `--etherbase`. You can further tune the mining by changing the default gas limit blocks converge to (`--targetgaslimit`) and the price transactions are accepted at (`--gasprice`).
+
+## JSON-RPC (Intro)
+
+JSON-RPC is a remote procedure call protocol encoded in JSON. It is a very simple protocol (and very similar to XML-RPC), defining only a few data types and commands. JSON-RPC allows for notifications (data sent to the server that does not require a response) and for multiple calls to be sent to the server which may be answered out of order. 
+
+JSON-RPC works by sending a request to a server implementing this protocol. The client in that case is typically software intending to call a single method of a remote system. Multiple input parameters can be passed to the remote method as an array or object, whereas the method itself can return multiple output data as well. (This depends on the implemented version.
+All transfer types are single objects, serialized using JSON.[1] A request is a call to a specific method provided by a remote system. It must contain three certain properties:method -
+
+* A String with the name of the method to be invoked.
+* params - An Object or Array of values to be passed as parameters to the defined method.
+* id - A value of any type used to match the response with the request that it is replying to.
+
+The receiver of the request must reply with a valid response to all received requests. A response must contain the properties mentioned below:
+
+* result - The data returned by the invoked method. If an error occurred while invoking the method, this value must be null.
+* error - A specified error code if there was an error invoking the method, otherwise null.
+* id - The id of the request it is responding to.
+
+Since there are situations where no response is needed or even desired, notifications were introduced. A notification is similar to a request except for the id, which is not needed because no response will be returned. In this case the id property should be omitted (Version 2.0) or be null (Version 1.0).
+
+
+
+
+
 
 ## Contribution
 
