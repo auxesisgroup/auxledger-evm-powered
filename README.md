@@ -186,7 +186,7 @@ $ bootnode --nodekey=boot.key
 
 With the bootnode online, it will display an [`enode` URL](https://github.com/Auxledger/wiki/wiki/enode-url-format) that other nodes can use to connect to it and exchange peer information. Make sure to replace the displayed IP address information (most probably `[::]`) with your externally accessible IP to get the actual `enode` URL.
 
-*Note: You could also use a full fledged Geth node as a bootnode, but it's the less recommended way.*
+*Note: You could also use a full fledged Gaux node as a bootnode, but it's the less recommended way.*
 
 #### Starting up your member nodes
 
@@ -201,7 +201,7 @@ $ gaux --datadir=path/to/custom/data/folder --bootnodes=<bootnode-enode-url-from
 #### Running a private miner
 
 Mining on the public Auxledger network is a complex task as it's only feasible using GPUs, requiring an OpenCL or CUDA enabled ethminer instance.
-In a private network setting however, a single CPU miner instance is more than enough for practical purposes as it can produce a stable stream of blocks at the correct intervals without needing heavy resources (consider running on a single thread, no need for multiple ones either). To start a Geth instance for mining, run it with all your usual flags, extended by:
+In a private network setting however, a single CPU miner instance is more than enough for practical purposes as it can produce a stable stream of blocks at the correct intervals without needing heavy resources (consider running on a single thread, no need for multiple ones either). To start a Gaux instance for mining, run it with all your usual flags, extended by:
 
 ```
 $ gaux <usual-flags> --mine --minerthreads=1 --etherbase=0x0000000000000000000000000000000000000000
