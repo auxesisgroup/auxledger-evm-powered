@@ -238,9 +238,12 @@ Since there are situations where no response is needed or even desired, notifica
 
 ### Phase 4 - Hydra
 
-| Status - Ongoing | Projected Completion Date - Q4, 2020 |
-
-|  -----:----- | -----------: |
+<table>
+  <tr>
+    <th>Status - Ongoing</th>
+    <th>Projected Completion Date - Q4, 2020</th>
+  </tr>
+</table>
 
 
 *Status - Ongoing <div align="right">Projected Completion Date - Q4, 2020.</div>*
