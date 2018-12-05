@@ -39,12 +39,11 @@ var DefaultConfig = Config{
 	DataDir:          DefaultDataDir(),
 	HTTPPort:         DefaultHTTPPort,
 	HTTPModules:      []string{"net", "web3"},
-	HTTPVirtualHosts: []string{"localhost"},
-	HTTPTimeouts:     rpc.DefaultHTTPTimeouts,
 	WSPort:           DefaultWSPort,
 	WSModules:        []string{"net", "web3"},
 	P2P: p2p.Config{
 		ListenAddr: ":30303",
+		DiscoveryV5Addr: ":30304",
 		MaxPeers:   25,
 		NAT:        nat.Any(),
 	},
@@ -57,11 +56,11 @@ func DefaultDataDir() string {
 	home := homeDir()
 	if home != "" {
 		if runtime.GOOS == "darwin" {
-			return filepath.Join(home, "Library", "Ethereum")
+			return filepath.Join(home, "Library", "Auxledger")
 		} else if runtime.GOOS == "windows" {
-			return filepath.Join(home, "AppData", "Roaming", "Ethereum")
+			return filepath.Join(home, "AppData", "Roaming", "Auxledger")
 		} else {
-			return filepath.Join(home, ".ethereum")
+			return filepath.Join(home, ".auxledger")
 		}
 	}
 	// As we cannot guess a stable location, return empty and handle later

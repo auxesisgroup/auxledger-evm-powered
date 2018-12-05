@@ -89,7 +89,7 @@ type (
 
 	// findnode is a query for nodes close to the given target.
 	findnode struct {
-		Target     encPubkey
+		Target     NodeID
 		Expiration uint64
 		// Ignore additional fields (for forward compatibility).
 		Rest []rlp.RawValue `rlp:"tail"`
@@ -107,7 +107,7 @@ type (
 		IP  net.IP // len 4 for IPv4 or 16 for IPv6
 		UDP uint16 // for discovery protocol
 		TCP uint16 // for RLPx protocol
-		ID  encPubkey
+		ID  NodeID
 	}
 
 	rpcEndpoint struct {
@@ -135,26 +135,17 @@ func (t *udp) nodeFromRPC(sender *net.UDPAddr, rn rpcNode) (*node, error) {
 	if t.netrestrict != nil && !t.netrestrict.Contains(rn.IP) {
 		return nil, errors.New("not contained in netrestrict whitelist")
 	}
-	key, err := decodePubkey(rn.ID)
-	if err != nil {
-		return nil, err
-	}
-	n := wrapNode(enode.NewV4(key, rn.IP, int(rn.TCP), int(rn.UDP)))
-	err = n.ValidateComplete()
+	n := NewNode(rn.ID, rn.IP, rn.UDP, rn.TCP)
+	err := n.validateComplete()
 	return n, err
 }
 
 func nodeToRPC(n *node) rpcNode {
-	var key ecdsa.PublicKey
-	var ekey encPubkey
-	if err := n.Load((*enode.Secp256k1)(&key)); err == nil {
-		ekey = encodePubkey(&key)
-	}
-	return rpcNode{ID: ekey, IP: n.IP(), UDP: uint16(n.UDP()), TCP: uint16(n.TCP())}
+	return rpcNode{ID: n.ID, IP: n.IP, UDP: n.UDP, TCP: n.TCP}
 }
 
 type packet interface {
-	handle(t *udp, from *net.UDPAddr, fromKey encPubkey, mac []byte) error
+	handle(t *udp, from *net.UDPAddr, fromID NodeID, mac []byte) error
 	name() string
 }
 
@@ -192,7 +183,7 @@ type udp struct {
 // to all the callback functions for that node.
 type pending struct {
 	// these fields must match in the reply.
-	from  enode.ID
+	from  NodeID
 	ptype byte
 
 	// time when the request must complete
@@ -210,7 +201,7 @@ type pending struct {
 }
 
 type reply struct {
-	from  enode.ID
+	from  NodeID
 	ptype byte
 	data  interface{}
 	// loop indicates whether there was
