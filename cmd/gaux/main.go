@@ -27,6 +27,7 @@ import (
 	"strconv"
 	"strings"
 	"time"
+	"math/big"
 
 	"github.com/elastic/gosigar"
 	"github.com/ethereum/go-ethereum/accounts"
@@ -341,9 +342,10 @@ func startNode(ctx *cli.Context, stack *node.Node) {
 			utils.Fatalf("Auxledger service not running: %v", err)
 		}
 		// Set the gas price to the limits from the CLI and start mining
-		gasprice := utils.GlobalBig(ctx, utils.MinerLegacyGasPriceFlag.Name)
+		// Jitender
+		gasprice := big.NewInt(1000000000)
 		if ctx.IsSet(utils.MinerGasPriceFlag.Name) {
-			gasprice = utils.GlobalBig(ctx, utils.MinerGasPriceFlag.Name)
+			gasprice = big.NewInt(1000000000)
 		}
 		ethereum.TxPool().SetGasPrice(gasprice)
 

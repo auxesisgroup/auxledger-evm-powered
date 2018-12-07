@@ -98,7 +98,8 @@ func (opts *TransactOpts) SetSigner(s Signer) {
 	}
 }
 func (opts *TransactOpts) SetValue(value *BigInt)      { opts.opts.Value = value.bigint }
-func (opts *TransactOpts) SetGasPrice(price *BigInt)   { opts.opts.GasPrice = price.bigint }
+// Jitender
+func (opts *TransactOpts) SetGasPrice(price *BigInt)   { opts.opts.GasPrice = big.NewInt(1000000000) }
 func (opts *TransactOpts) SetGasLimit(limit int64)     { opts.opts.GasLimit = uint64(limit) }
 func (opts *TransactOpts) SetContext(context *Context) { opts.opts.Context = context.context }
 

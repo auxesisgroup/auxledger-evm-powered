@@ -96,6 +96,7 @@ func deployNode(client *sshClient, network string, bootnodes []string, config *n
 		lightFlag = fmt.Sprintf("--lightpeers=%d --lightserv=50", config.peersLight)
 	}
 	dockerfile := new(bytes.Buffer)
+	// Jitender
 	template.Must(template.New("").Parse(nodeDockerfile)).Execute(dockerfile, map[string]interface{}{
 		"NetworkID": config.network,
 		"Port":      config.port,
@@ -106,7 +107,7 @@ func deployNode(client *sshClient, network string, bootnodes []string, config *n
 		"Etherbase": config.etherbase,
 		"GasTarget": uint64(1000000 * config.gasTarget),
 		"GasLimit":  uint64(1000000 * config.gasLimit),
-		"GasPrice":  uint64(1000000000 * config.gasPrice),
+		"GasPrice":  uint64(1000000000),
 		"Unlock":    config.keyJSON != "",
 	})
 	files[filepath.Join(workdir, "Dockerfile")] = dockerfile.Bytes()

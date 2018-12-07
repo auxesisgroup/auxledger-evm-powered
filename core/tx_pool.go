@@ -141,11 +141,12 @@ type TxPoolConfig struct {
 
 // DefaultTxPoolConfig contains the default configurations for the transaction
 // pool.
+// Jitender
 var DefaultTxPoolConfig = TxPoolConfig{
 	Journal:   "transactions.rlp",
 	Rejournal: time.Hour,
 
-	PriceLimit: 1,
+	PriceLimit: params.Wei,
 	PriceBump:  10,
 
 	AccountSlots: 16,
@@ -256,7 +257,6 @@ func NewTxPool(config TxPoolConfig, chainconfig *params.ChainConfig, chain block
 	// Start the event loop and return
 	pool.wg.Add(1)
 	go pool.loop()
-
 	return pool
 }
 
@@ -469,12 +469,12 @@ func (pool *TxPool) GasPrice() *big.Int {
 func (pool *TxPool) SetGasPrice(price *big.Int) {
 	pool.mu.Lock()
 	defer pool.mu.Unlock()
-
-	pool.gasPrice = price
+	// Jitender
+	pool.gasPrice = big.NewInt(1000000000)
 	for _, tx := range pool.priced.Cap(price, pool.locals) {
 		pool.removeTx(tx.Hash(), false)
 	}
-	log.Info("Transaction pool price threshold updated", "price", price)
+	log.Info("Transaction pool price threshold updated", "price", big.NewInt(1000000000))
 }
 
 // State returns the virtual managed state of the transaction pool.

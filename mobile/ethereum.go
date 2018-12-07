@@ -20,6 +20,7 @@ package geth
 
 import (
 	"errors"
+	"math/big"
 
 	ethereum "github.com/ethereum/go-ethereum"
 	"github.com/ethereum/go-ethereum/common"
@@ -61,7 +62,8 @@ func (msg *CallMsg) GetTo() *Address {
 
 func (msg *CallMsg) SetFrom(address *Address)  { msg.msg.From = address.address }
 func (msg *CallMsg) SetGas(gas int64)          { msg.msg.Gas = uint64(gas) }
-func (msg *CallMsg) SetGasPrice(price *BigInt) { msg.msg.GasPrice = price.bigint }
+// Jitender
+func (msg *CallMsg) SetGasPrice(price *BigInt) { msg.msg.GasPrice = big.NewInt(1000000000) }
 func (msg *CallMsg) SetValue(value *BigInt)    { msg.msg.Value = value.bigint }
 func (msg *CallMsg) SetData(data []byte)       { msg.msg.Data = common.CopyBytes(data) }
 func (msg *CallMsg) SetTo(address *Address) {
