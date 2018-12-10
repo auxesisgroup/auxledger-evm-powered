@@ -1,7 +1,7 @@
 package constellation
 
 import (
-	"github.com/BurntSushi/toml"
+	 "github.com/BurntSushi/toml"
 )
 
 type Config struct {

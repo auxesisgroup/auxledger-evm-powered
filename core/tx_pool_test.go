@@ -87,6 +87,17 @@ func setupTxPool() (*TxPool, *ecdsa.PrivateKey) {
 	return pool, key
 }
 
+func setupQuorumTxPool() (*TxPool, *ecdsa.PrivateKey) {
+	db, _ := ethdb.NewMemDatabase()
+	statedb, _ := state.New(common.Hash{}, state.NewDatabase(db))
+	blockchain := &testBlockChain{statedb, big.NewInt(1000000), new(event.Feed)}
+
+	key, _ := crypto.GenerateKey()
+	pool := NewTxPool(testTxPoolConfig, params.QuorumTestChainConfig, blockchain)
+
+	return pool, key
+}
+
 // validateTxPoolInternals checks various consistency invariants within the pool.
 func validateTxPoolInternals(pool *TxPool) error {
 	pool.mu.RLock()

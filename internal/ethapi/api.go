@@ -40,6 +40,7 @@ import (
 	"github.com/ethereum/go-ethereum/log"
 	"github.com/ethereum/go-ethereum/p2p"
 	"github.com/ethereum/go-ethereum/params"
+	"github.com/ethereum/go-ethereum/private"
 	"github.com/ethereum/go-ethereum/rlp"
 	"github.com/ethereum/go-ethereum/rpc"
 	"github.com/syndtr/goleveldb/leveldb"
@@ -346,6 +347,29 @@ func (s *PrivateAccountAPI) signTransaction(ctx context.Context, args SendTxArgs
 	if err != nil {
 		return nil, err
 	}
+	if args.Nonce == nil {
+		// Hold the addresse's mutex around signing to prevent concurrent assignment of
+		// the same nonce to multiple accounts.
+		s.nonceLock.LockAddr(args.From)
+		defer s.nonceLock.UnlockAddr(args.From)
+	}
+
+	data := []byte(args.Data)
+	isPrivate := args.PrivateFor != nil
+	if isPrivate {
+		if len(data) > 0 {
+			log.Info("sending private tx", "data", fmt.Sprintf("%x", data), "privatefrom", args.PrivateFrom, "privatefor", args.PrivateFor)
+			data, err = private.P.Send(data, args.PrivateFrom, args.PrivateFor)
+			log.Info("sent private tx", "data", fmt.Sprintf("%x", data), "privatefrom", args.PrivateFrom, "privatefor", args.PrivateFor)
+			 fmt.Sprintf("PrivateFor: %s", data)
+			if err != nil {
+				// return common.Hash{}, err
+			}
+		} // else tx_pool.go#validateTx will capture and throw error
+		args.Data = data
+	}
+
+
 	// Set some sanity defaults and terminate on failure
 	if err := args.setDefaults(ctx, s.b); err != nil {
 		return nil, err
@@ -1117,8 +1141,13 @@ type SendTxArgs struct {
 	Nonce    *hexutil.Uint64 `json:"nonce"`
 	// We accept "data" and "input" for backwards-compatibility reasons. "input" is the
 	// newer name and should be preferred by clients.
-	Data  *hexutil.Bytes `json:"data"`
-	Input *hexutil.Bytes `json:"input"`
+	 Data  hexutil.Bytes `json:"data"`
+	 Input hexutil.Bytes `json:"input"`
+	//Quorum
+	PrivateFrom string   `json:"privateFrom"`
+	PrivateFor  []string `json:"privateFor"`
+	PrivateTxType string `json:"restriction"`
+	//End-Quorum
 }
 
 // setDefaults is a helper function that fills in default values for unspecified tx fields.
@@ -1144,16 +1173,16 @@ func (args *SendTxArgs) setDefaults(ctx context.Context, b Backend) error {
 		}
 		args.Nonce = (*hexutil.Uint64)(&nonce)
 	}
-	if args.Data != nil && args.Input != nil && !bytes.Equal(*args.Data, *args.Input) {
+	if args.Data != nil && args.Input != nil && !bytes.Equal(args.Data, args.Input) {
 		return errors.New(`Both "data" and "input" are set and not equal. Please use "input" to pass transaction call data.`)
 	}
 	if args.To == nil {
 		// Contract creation
 		var input []byte
 		if args.Data != nil {
-			input = *args.Data
+			input = args.Data
 		} else if args.Input != nil {
-			input = *args.Input
+			input = args.Input
 		}
 		if len(input) == 0 {
 			return errors.New(`contract creation without any data provided`)
@@ -1165,9 +1194,9 @@ func (args *SendTxArgs) setDefaults(ctx context.Context, b Backend) error {
 func (args *SendTxArgs) toTransaction() *types.Transaction {
 	var input []byte
 	if args.Data != nil {
-		input = *args.Data
+		input = args.Data
 	} else if args.Input != nil {
-		input = *args.Input
+		input = args.Input
 	}
 	if args.To == nil {
 		return types.NewContractCreation(uint64(*args.Nonce), (*big.Int)(args.Value), uint64(*args.Gas), (*big.Int)(args.GasPrice), input)
@@ -1211,6 +1240,22 @@ func (s *PublicTransactionPoolAPI) SendTransaction(ctx context.Context, args Sen
 		// the same nonce to multiple accounts.
 		s.nonceLock.LockAddr(args.From)
 		defer s.nonceLock.UnlockAddr(args.From)
+	}
+
+	data := []byte(args.Data)
+	isPrivate := args.PrivateFor != nil
+
+	if isPrivate {
+		if len(data) > 0 {
+			// Send private transaction to local Constellation node
+			log.Info("sending private tx", "data", fmt.Sprintf("%x", data), "privatefrom", args.PrivateFrom, "privatefor", args.PrivateFor)
+			data, err = private.P.Send(data, args.PrivateFrom, args.PrivateFor)
+			log.Info("sent private tx", "data", fmt.Sprintf("%x", data), "privatefrom", args.PrivateFrom, "privatefor", args.PrivateFor)
+		    if err != nil {
+				return common.Hash{}, err
+			}
+		} // else tx_pool.go#validateTx will capture and throw error
+		args.Data = data
 	}
 
 	// Set some sanity defaults and terminate on failure
@@ -1292,6 +1337,9 @@ func (s *PublicTransactionPoolAPI) SignTransaction(ctx context.Context, args Sen
 	if err != nil {
 		return nil, err
 	}
+	if args.PrivateFor != nil {
+		 tx.SetPrivate()
+	}
 	data, err := rlp.EncodeToBytes(tx)
 	if err != nil {
 		return nil, err
@@ -1355,6 +1403,10 @@ func (s *PublicTransactionPoolAPI) Resend(ctx context.Context, sendArgs SendTxAr
 			}
 			if gasLimit != nil && *gasLimit != 0 {
 				sendArgs.Gas = gasLimit
+			}
+			newTx := sendArgs.toTransaction()
+			if len(sendArgs.PrivateFor) > 0 {
+				newTx.SetPrivate()
 			}
 			signedTx, err := s.sign(sendArgs.From, sendArgs.toTransaction())
 			if err != nil {

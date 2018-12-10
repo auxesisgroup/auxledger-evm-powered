@@ -8,7 +8,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/patrickmn/go-cache"
+	 "github.com/patrickmn/go-cache"
 )
 
 type Constellation struct {

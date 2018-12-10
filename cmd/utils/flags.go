@@ -571,12 +571,6 @@ var (
 		Name:  "shh.restrict-light",
 		Usage: "Restrict connection between two whisper light clients",
 	}
-        
-        // Quorum
-	EnableNodePermissionFlag = cli.BoolFlag{
-		Name:  "permissioned",
-		Usage: "If enabled, the node will allow only a defined list of nodes to connect",
-	}
 
 	// Metrics flags
 	MetricsEnabledFlag = cli.BoolFlag{

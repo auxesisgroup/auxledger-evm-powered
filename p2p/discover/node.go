@@ -18,11 +18,8 @@ package discover
 
 import (
 	"crypto/ecdsa"
-        "crypto/elliptic"
-	"encoding/hex"	
-        "errors"
+	"errors"
 	"math/big"
-	"math/rand"
 	"net"
 	"time"
 

@@ -28,7 +28,7 @@ import (
 	"github.com/ethereum/go-ethereum/common/mclock"
 	"github.com/ethereum/go-ethereum/event"
 	"github.com/ethereum/go-ethereum/log"
-	"github.com/ethereum/go-ethereum/p2p/discover"
+	"github.com/ethereum/go-ethereum/p2p/enode"
 	"github.com/ethereum/go-ethereum/p2p/enr"
 	"github.com/ethereum/go-ethereum/rlp"
 )
@@ -53,8 +53,6 @@ const (
 	discMsg      = 0x01
 	pingMsg      = 0x02
 	pongMsg      = 0x03
-        getPeersMsg  = 0x04
-	peersMsg     = 0x05
 )
 
 // protoHandshake is the RLP structure of the protocol handshake.
@@ -63,7 +61,7 @@ type protoHandshake struct {
 	Name       string
 	Caps       []Cap
 	ListenPort uint64
-	ID         discover.NodeID
+	ID         []byte // secp256k1 public key
 
 	// Ignore additional fields (for forward compatibility).
 	Rest []rlp.RawValue `rlp:"tail"`
@@ -94,7 +92,7 @@ const (
 // a p2p.Server or when a message is sent or received on a peer connection
 type PeerEvent struct {
 	Type     PeerEventType `json:"type"`
-	Peer     discover.NodeID `json:"peer"`
+	Peer     enode.ID      `json:"peer"`
 	Error    string        `json:"error,omitempty"`
 	Protocol string        `json:"protocol,omitempty"`
 	MsgCode  *uint64       `json:"msg_code,omitempty"`
@@ -118,17 +116,18 @@ type Peer struct {
 }
 
 // NewPeer returns a peer for testing purposes.
-func NewPeer(id discover.NodeID, name string, caps []Cap) *Peer {
+func NewPeer(id enode.ID, name string, caps []Cap) *Peer {
 	pipe, _ := net.Pipe()
-	conn := &conn{fd: pipe, transport: nil, id: id, caps: caps, name: name}
+	node := enode.SignNull(new(enr.Record), id)
+	conn := &conn{fd: pipe, transport: nil, node: node, caps: caps, name: name}
 	peer := newPeer(conn, nil)
 	close(peer.closed) // ensures Disconnect doesn't block
 	return peer
 }
 
 // ID returns the node's public key.
-func (p *Peer) ID() discover.NodeID {
-	return p.rw.id
+func (p *Peer) ID() enode.ID {
+	return p.rw.node.ID()
 }
 
 // Node returns the peer's node descriptor.
@@ -186,7 +185,7 @@ func newPeer(conn *conn, protocols []Protocol) *Peer {
 		disc:     make(chan DiscReason),
 		protoErr: make(chan error, len(protomap)+1), // protocols + pingLoop
 		closed:   make(chan struct{}),
-		log:      log.New("id", conn.id, "conn", conn.flags),
+		log:      log.New("id", conn.node.ID(), "conn", conn.flags),
 	}
 	return p
 }
@@ -432,6 +431,9 @@ type PeerInfo struct {
 	Network struct {
 		LocalAddress  string `json:"localAddress"`  // Local endpoint of the TCP data connection
 		RemoteAddress string `json:"remoteAddress"` // Remote endpoint of the TCP data connection
+		Inbound       bool   `json:"inbound"`
+		Trusted       bool   `json:"trusted"`
+		Static        bool   `json:"static"`
 	} `json:"network"`
 	Protocols map[string]interface{} `json:"protocols"` // Sub-protocol specific metadata fields
 }
@@ -452,7 +454,10 @@ func (p *Peer) Info() *PeerInfo {
 	}
 	info.Network.LocalAddress = p.LocalAddr().String()
 	info.Network.RemoteAddress = p.RemoteAddr().String()
-	
+	info.Network.Inbound = p.rw.is(inboundConn)
+	info.Network.Trusted = p.rw.is(trustedConn)
+	info.Network.Static = p.rw.is(staticDialedConn)
+
 	// Gather all the running protocol infos
 	for _, proto := range p.running {
 		protoInfo := interface{}("unknown")
