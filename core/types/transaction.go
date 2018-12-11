@@ -19,6 +19,7 @@ package types
 import (
 	"container/heap"
 	"errors"
+	"fmt"
 	"io"
 	"math/big"
 	"sync/atomic"
@@ -34,6 +35,15 @@ import (
 var (
 	ErrInvalidSig = errors.New("invalid transaction v, r, s values")
 )
+
+func deriveSigner(V *big.Int) Signer {
+	// joel: this is one of the two places we used a wrong signer to print txes
+	if V.Sign() != 0 && isProtectedV(V) {
+		return NewEIP155Signer(deriveChainId(V))
+	} else {
+		return HomesteadSigner{}
+	}
+}
 
 type Transaction struct {
 	data txdata
@@ -117,7 +127,7 @@ func (tx *Transaction) Protected() bool {
 func isProtectedV(V *big.Int) bool {
 	if V.BitLen() <= 8 {
 		v := V.Uint64()
-		return v != 27 && v != 28
+		return !(v == 27 || v == 28)
 	}
 	// anything not 27 or 28 is considered protected
 	return true
@@ -221,6 +231,7 @@ func (tx *Transaction) AsMessage(s Signer) (Message, error) {
 		amount:     tx.data.Amount,
 		data:       tx.data.Payload,
 		checkNonce: true,
+		isPrivate:  tx.IsPrivate(),
 	}
 
 	var err error
@@ -251,7 +262,59 @@ func (tx *Transaction) RawSignatureValues() (*big.Int, *big.Int, *big.Int) {
 	return tx.data.V, tx.data.R, tx.data.S
 }
 
-// Transactions is a Transaction slice type for basic sorting.
+func (tx *Transaction) String() string {
+	var from, to string
+	if tx.data.V != nil {
+		// make a best guess about the signer and use that to derive
+		// the sender.
+		signer := deriveSigner(tx.data.V)
+		if f, err := Sender(signer, tx); err != nil { // derive but don't cache
+			from = "[invalid sender: invalid sig]"
+		} else {
+			from = fmt.Sprintf("%x", f[:])
+		}
+	} else {
+		from = "[invalid sender: nil V field]"
+	}
+
+	if tx.data.Recipient == nil {
+		to = "[contract creation]"
+	} else {
+		to = fmt.Sprintf("%x", tx.data.Recipient[:])
+	}
+	enc, _ := rlp.EncodeToBytes(&tx.data)
+	return fmt.Sprintf(`
+	TX(%x)
+	Contract: %v
+	From:     %s
+	To:       %s
+	Nonce:    %v
+	GasPrice: %#x
+	GasLimit  %#x
+	Value:    %#x
+	Data:     0x%x
+	V:        %#x
+	R:        %#x
+	S:        %#x
+	Hex:      %x
+`,
+		tx.Hash(),
+		tx.data.Recipient == nil,
+		from,
+		to,
+		tx.data.AccountNonce,
+		tx.data.Price,
+		tx.data.GasLimit,
+		tx.data.Amount,
+		tx.data.Payload,
+		tx.data.V,
+		tx.data.R,
+		tx.data.S,
+		enc,
+	)
+}
+
+// Transaction slice type for basic sorting.
 type Transactions []*Transaction
 
 // Len returns the length of s.
@@ -387,6 +450,7 @@ type Message struct {
 	gasPrice   *big.Int
 	data       []byte
 	checkNonce bool
+	isPrivate bool
 }
 
 func NewMessage(from common.Address, to *common.Address, nonce uint64, amount *big.Int, gasLimit uint64, gasPrice *big.Int, data []byte, checkNonce bool) Message {
@@ -410,3 +474,22 @@ func (m Message) Gas() uint64          { return m.gasLimit }
 func (m Message) Nonce() uint64        { return m.nonce }
 func (m Message) Data() []byte         { return m.data }
 func (m Message) CheckNonce() bool     { return m.checkNonce }
+
+func (m Message) IsPrivate() bool {
+	return m.isPrivate
+}
+
+func (tx *Transaction) IsPrivate() bool {
+	if tx.data.V == nil {
+		return false
+	}
+	return tx.data.V.Uint64() == 37 || tx.data.V.Uint64() == 38
+}
+
+func (tx *Transaction) SetPrivate() {
+	if tx.data.V.Int64() == 28 {
+		tx.data.V.SetUint64(38)
+	} else {
+		tx.data.V.SetUint64(37)
+	}
+}
