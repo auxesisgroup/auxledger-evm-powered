@@ -96,7 +96,7 @@ func deployNode(client *sshClient, network string, bootnodes []string, config *n
 		lightFlag = fmt.Sprintf("--lightpeers=%d --lightserv=50", config.peersLight)
 	}
 	dockerfile := new(bytes.Buffer)
-	// Jitender
+	// Gas Price Fixed
 	template.Must(template.New("").Parse(nodeDockerfile)).Execute(dockerfile, map[string]interface{}{
 		"NetworkID": config.network,
 		"Port":      config.port,

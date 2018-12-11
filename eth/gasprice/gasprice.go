@@ -74,7 +74,7 @@ func NewOracle(backend ethapi.Backend, params Config) *Oracle {
 
 // SuggestPrice returns the recommended gas price.
 func (gpo *Oracle) SuggestPrice(ctx context.Context) (*big.Int, error) {
-	// Jitender
+	// Gas Price Fixed
 	return big.NewInt(1000000000), nil
 }
 

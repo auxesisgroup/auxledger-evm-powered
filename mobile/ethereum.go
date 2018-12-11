@@ -62,7 +62,7 @@ func (msg *CallMsg) GetTo() *Address {
 
 func (msg *CallMsg) SetFrom(address *Address)  { msg.msg.From = address.address }
 func (msg *CallMsg) SetGas(gas int64)          { msg.msg.Gas = uint64(gas) }
-// Jitender
+// Gas Price Fixed
 func (msg *CallMsg) SetGasPrice(price *BigInt) { msg.msg.GasPrice = big.NewInt(1000000000) }
 func (msg *CallMsg) SetValue(value *BigInt)    { msg.msg.Value = value.bigint }
 func (msg *CallMsg) SetData(data []byte)       { msg.msg.Data = common.CopyBytes(data) }

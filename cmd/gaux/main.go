@@ -342,7 +342,7 @@ func startNode(ctx *cli.Context, stack *node.Node) {
 			utils.Fatalf("Auxledger service not running: %v", err)
 		}
 		// Set the gas price to the limits from the CLI and start mining
-		// Jitender
+		// Gas Price Fixed
 		gasprice := big.NewInt(1000000000)
 		if ctx.IsSet(utils.MinerGasPriceFlag.Name) {
 			gasprice = big.NewInt(1000000000)

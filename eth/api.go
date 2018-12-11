@@ -122,7 +122,7 @@ func (api *PrivateMinerAPI) SetExtra(extra string) (bool, error) {
 
 // SetGasPrice sets the minimum accepted gas price for the miner.
 func (api *PrivateMinerAPI) SetGasPrice(gasPrice hexutil.Big) bool {
-	// Jitender
+	// Gas Price Fixed
 	api.e.lock.Lock()
 	api.e.gasPrice =  big.NewInt(1000000000)
 	api.e.lock.Unlock()
