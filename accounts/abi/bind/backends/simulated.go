@@ -40,6 +40,8 @@ import (
 	"github.com/ethereum/go-ethereum/event"
 	"github.com/ethereum/go-ethereum/params"
 	"github.com/ethereum/go-ethereum/rpc"
+	
+	// "github.com/ethereum/go-ethereum/log"
 )
 
 // This nil assignment ensures compile time that SimulatedBackend implements bind.ContractBackend.
@@ -211,7 +213,11 @@ func (b *SimulatedBackend) PendingNonceAt(ctx context.Context, account common.Ad
 // chain doesn't have miners, we just return a gas price of 1 for any call.
 func (b *SimulatedBackend) SuggestGasPrice(ctx context.Context) (*big.Int, error) {
 	// Gas Price Fixed
-	return big.NewInt(params.Wei), nil
+	// log.Info(" ===================== SuggestGasPrice Simulated ==============================")
+	fixGasPrice := big.NewInt(int64(rawdb.ReadGasPrice(b.database)))
+	// log.Info(fixGasPrice.String())
+	// log.Info(" ===================== SuggestGasPrice Simulated ==============================")
+	return fixGasPrice, nil
 }
 
 // EstimateGas executes the requested code against the currently pending block/state and
@@ -269,8 +275,12 @@ func (b *SimulatedBackend) EstimateGas(ctx context.Context, call ethereum.CallMs
 func (b *SimulatedBackend) callContract(ctx context.Context, call ethereum.CallMsg, block *types.Block, statedb *state.StateDB) ([]byte, uint64, bool, error) {
 	// Ensure message is initialized properly.
 	if call.GasPrice == nil {
-		// Jitender
-		call.GasPrice = big.NewInt(params.Wei)
+		// Gas Price Fix
+		// log.Info(" ===================== GasPrice callContract ==============================")
+		fixGasPrice := big.NewInt(int64(rawdb.ReadGasPrice(b.database)))
+		// log.Info(fixGasPrice.String())
+		call.GasPrice = fixGasPrice
+		// log.Info(" ===================== GasPrice callContract ==============================")
 	}
 	if call.Gas == 0 {
 		call.Gas = 50000000

@@ -33,6 +33,12 @@ import (
 	"github.com/ethereum/go-ethereum/log"
 	"github.com/ethereum/go-ethereum/metrics"
 	"github.com/ethereum/go-ethereum/params"
+	
+	"github.com/ethereum/go-ethereum/ethdb"
+	"github.com/ethereum/go-ethereum/core/rawdb"
+	// "strconv"
+	// "github.com/syndtr/goleveldb/leveldb"
+	// "path/filepath"
 )
 
 const (
@@ -184,6 +190,10 @@ func (config *TxPoolConfig) sanitize() TxPoolConfig {
 // current state) and future transactions. Transactions move between those
 // two states over time as they are received and processed.
 type TxPool struct {
+	
+	// Gas Price Fix
+	chaindb ethdb.Database
+
 	config       TxPoolConfig
 	chainconfig  *params.ChainConfig
 	chain        blockChain
@@ -215,7 +225,7 @@ type TxPool struct {
 
 // NewTxPool creates a new transaction pool to gather, sort and filter inbound
 // transactions from the network.
-func NewTxPool(config TxPoolConfig, chainconfig *params.ChainConfig, chain blockChain) *TxPool {
+func NewTxPool(config TxPoolConfig, chainconfig *params.ChainConfig, chain blockChain, db ethdb.Database) *TxPool {
 	// Sanitize the input to ensure no vulnerable gas prices are set
 	config = (&config).sanitize()
 
@@ -231,6 +241,7 @@ func NewTxPool(config TxPoolConfig, chainconfig *params.ChainConfig, chain block
 		all:         newTxLookup(),
 		chainHeadCh: make(chan ChainHeadEvent, chainHeadChanSize),
 		gasPrice:    new(big.Int).SetUint64(config.PriceLimit),
+		chaindb: db,
 	}
 	pool.locals = newAccountSet(pool.signer)
 	for _, addr := range config.Locals {
@@ -468,14 +479,23 @@ func (pool *TxPool) GasPrice() *big.Int {
 // SetGasPrice updates the minimum price required by the transaction pool for a
 // new transaction, and drops all transactions below this threshold.
 func (pool *TxPool) SetGasPrice(price *big.Int) {
+
+	// log.Info(" ===================== SetGasPrice Core ==============================")
+	
+	// Gas Price Fixed
+	fixGasPrice := big.NewInt(int64(rawdb.ReadGasPrice(pool.chaindb)))
+	// log.Info(fixGasPrice.String())
 	pool.mu.Lock()
 	defer pool.mu.Unlock()
+	
 	// Gas Price Fixed
-	pool.gasPrice = big.NewInt(1000000000)
-	for _, tx := range pool.priced.Cap(price, pool.locals) {
+	pool.gasPrice = fixGasPrice
+	for _, tx := range pool.priced.Cap(fixGasPrice, pool.locals) {
 		pool.removeTx(tx.Hash(), false)
 	}
-	log.Info("Transaction pool price threshold updated", "price", big.NewInt(1000000000))
+	log.Info("Transaction pool price threshold updated", "price", fixGasPrice)
+
+	// log.Info(" ===================== SetGasPrice Core ==============================")
 }
 
 // State returns the virtual managed state of the transaction pool.

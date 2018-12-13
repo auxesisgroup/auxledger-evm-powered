@@ -58,6 +58,8 @@ import (
 	"github.com/ethereum/go-ethereum/params"
 	whisper "github.com/ethereum/go-ethereum/whisper/whisperv6"
 	"gopkg.in/urfave/cli.v1"
+
+	"github.com/ethereum/go-ethereum/core/rawdb"
 )
 
 var (
@@ -1121,6 +1123,15 @@ func SetShhConfig(ctx *cli.Context, stack *node.Node, cfg *whisper.Config) {
 
 // SetEthConfig applies eth-related command line flags to the config.
 func SetEthConfig(ctx *cli.Context, stack *node.Node, cfg *eth.Config) {
+
+	// Gas Price Fixed
+	// log.Info(" ===================== Test ===========================")
+	chainDb := MakeChainDatabase(ctx, stack)
+	fixGasPrice := big.NewInt(int64(rawdb.ReadGasPrice(chainDb)))
+	chainDb.Close()
+	// log.Info(fixGasPrice.String())
+	// log.Info(" ===================== Test ===========================")
+
 	// Avoid conflicting network flags
 	checkExclusive(ctx, DeveloperFlag, TestnetFlag, RinkebyFlag)
 	checkExclusive(ctx, LightServFlag, SyncModeFlag, "light")
@@ -1179,10 +1190,14 @@ func SetEthConfig(ctx *cli.Context, stack *node.Node, cfg *eth.Config) {
 		cfg.MinerGasCeil = ctx.GlobalUint64(MinerGasLimitFlag.Name)
 	}
 	if ctx.GlobalIsSet(MinerLegacyGasPriceFlag.Name) {
-		cfg.MinerGasPrice = GlobalBig(ctx, MinerLegacyGasPriceFlag.Name)
+		// Gas Price Fixed
+		// log.Info(" ===================== Test 2 ===========================")
+		cfg.MinerGasPrice = fixGasPrice
 	}
 	if ctx.GlobalIsSet(MinerGasPriceFlag.Name) {
-		cfg.MinerGasPrice = GlobalBig(ctx, MinerGasPriceFlag.Name)
+		// Gas Price Fixed
+		// log.Info(" ===================== Test 3 ===========================")
+		cfg.MinerGasPrice = fixGasPrice
 	}
 	if ctx.GlobalIsSet(MinerRecommitIntervalFlag.Name) {
 		cfg.MinerRecommit = ctx.Duration(MinerRecommitIntervalFlag.Name)
@@ -1240,7 +1255,7 @@ func SetEthConfig(ctx *cli.Context, stack *node.Node, cfg *eth.Config) {
 		cfg.Genesis = core.DeveloperGenesisBlock(uint64(ctx.GlobalInt(DeveloperPeriodFlag.Name)), developer.Address)
 		if !ctx.GlobalIsSet(MinerGasPriceFlag.Name) && !ctx.GlobalIsSet(MinerLegacyGasPriceFlag.Name) {
 			// Gas Price Fixed
-			cfg.MinerGasPrice = big.NewInt(params.Wei)
+			cfg.MinerGasPrice = fixGasPrice
 		}
 	}
 	// TODO(fjl): move trie cache generations into config

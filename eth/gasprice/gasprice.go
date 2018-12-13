@@ -21,11 +21,19 @@ import (
 	"math/big"
 	"sort"
 	"sync"
-
+	
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/core/types"
 	"github.com/ethereum/go-ethereum/internal/ethapi"
 	"github.com/ethereum/go-ethereum/rpc"
+	"github.com/ethereum/go-ethereum/core/rawdb"
+
+	
+	// "strconv"
+	// "path/filepath"
+	// "github.com/ethereum/go-ethereum/log"
+	// "github.com/ethereum/go-ethereum/ethdb"
+	// "github.com/syndtr/goleveldb/leveldb"
 )
 
 // var maxPrice = big.NewInt(500 * params.GWei)
@@ -75,7 +83,12 @@ func NewOracle(backend ethapi.Backend, params Config) *Oracle {
 // SuggestPrice returns the recommended gas price.
 func (gpo *Oracle) SuggestPrice(ctx context.Context) (*big.Int, error) {
 	// Gas Price Fixed
-	return big.NewInt(1000000000), nil
+	// log.Info(" ===================== SuggestPrice ==============================")
+	dbGasPrice := gpo.backend.ChainDb()
+	gasPrice := rawdb.ReadGasPrice(dbGasPrice)
+	// log.Info(strconv.FormatUint(gasPrice, 10))
+	// log.Info(" ===================== SuggestPrice ==============================")
+	return big.NewInt(int64(gasPrice)), nil
 }
 
 type getBlockPricesResult struct {

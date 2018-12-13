@@ -342,12 +342,13 @@ func startNode(ctx *cli.Context, stack *node.Node) {
 			utils.Fatalf("Auxledger service not running: %v", err)
 		}
 		// Set the gas price to the limits from the CLI and start mining
+
 		// Gas Price Fixed
-		gasprice := big.NewInt(1000000000)
-		if ctx.IsSet(utils.MinerGasPriceFlag.Name) {
-			gasprice = big.NewInt(1000000000)
-		}
-		ethereum.TxPool().SetGasPrice(gasprice)
+		// gasprice := big.NewInt(1000000000)
+		// if ctx.IsSet(utils.MinerGasPriceFlag.Name) {
+		// 	gasprice = big.NewInt(1000000000)
+		// }
+		ethereum.TxPool().SetGasPrice(big.NewInt(0))
 
 		threads := ctx.GlobalInt(utils.MinerLegacyThreadsFlag.Name)
 		if ctx.GlobalIsSet(utils.MinerThreadsFlag.Name) {

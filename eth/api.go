@@ -31,7 +31,6 @@ import (
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/common/hexutil"
 	"github.com/ethereum/go-ethereum/core"
-	"github.com/ethereum/go-ethereum/core/rawdb"
 	"github.com/ethereum/go-ethereum/core/state"
 	"github.com/ethereum/go-ethereum/core/types"
 	"github.com/ethereum/go-ethereum/internal/ethapi"
@@ -39,6 +38,10 @@ import (
 	"github.com/ethereum/go-ethereum/rlp"
 	"github.com/ethereum/go-ethereum/rpc"
 	"github.com/ethereum/go-ethereum/trie"
+
+	"github.com/ethereum/go-ethereum/core/rawdb"
+	"strconv"
+	"github.com/ethereum/go-ethereum/log"
 )
 
 // PublicEthereumAPI provides an API to access Ethereum full node-related
@@ -122,13 +125,21 @@ func (api *PrivateMinerAPI) SetExtra(extra string) (bool, error) {
 
 // SetGasPrice sets the minimum accepted gas price for the miner.
 func (api *PrivateMinerAPI) SetGasPrice(gasPrice hexutil.Big) bool {
-	// Gas Price Fixed
+	
+	// Gas Price Fixed	
+	// log.Info(" ===================== SetGasPrice ==============================")
+	
+	dbGasPrice := api.e.chainDb
+	fixGasPrice := rawdb.ReadGasPrice(dbGasPrice)	
+	
 	api.e.lock.Lock()
-	api.e.gasPrice =  big.NewInt(1000000000)
+	api.e.gasPrice =  big.NewInt(int64(fixGasPrice))
 	api.e.lock.Unlock()
+	api.e.txPool.SetGasPrice(big.NewInt(int64(fixGasPrice)))
 
-	api.e.txPool.SetGasPrice(big.NewInt(1000000000))
-	return true
+	log.Warn("It is not allowed to change the Gas Price. Hence Setting it to default ", "Default_Gas_Price", strconv.FormatUint(fixGasPrice, 10))
+	// log.Info(" ===================== SetGasPrice ==============================")
+	return false
 }
 
 // SetEtherbase sets the etherbase of the miner

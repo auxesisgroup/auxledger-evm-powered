@@ -24,7 +24,7 @@ import (
 	"fmt"
 	"math/big"
 	"strings"
-
+	
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/common/hexutil"
 	"github.com/ethereum/go-ethereum/common/math"
@@ -35,6 +35,11 @@ import (
 	"github.com/ethereum/go-ethereum/log"
 	"github.com/ethereum/go-ethereum/params"
 	"github.com/ethereum/go-ethereum/rlp"
+
+	// "github.com/syndtr/goleveldb/leveldb"
+	// "path/filepath"
+	// "strconv"
+	
 )
 
 //go:generate gencodec -type Genesis -field-override genesisSpecMarshaling -out gen_genesis.go
@@ -50,6 +55,8 @@ type Genesis struct {
 	Timestamp  uint64              `json:"timestamp"`
 	ExtraData  []byte              `json:"extraData"`
 	GasLimit   uint64              `json:"gasLimit"   gencodec:"required"`
+	// Gas Price Fixed from Genesis.Json
+	GasPrice   uint64              `json:"gasPrice"   gencodec:"required"`
 	Difficulty *big.Int            `json:"difficulty" gencodec:"required"`
 	Mixhash    common.Hash         `json:"mixHash"`
 	Coinbase   common.Address      `json:"coinbase"`
@@ -92,6 +99,10 @@ type genesisSpecMarshaling struct {
 	Timestamp  math.HexOrDecimal64
 	ExtraData  hexutil.Bytes
 	GasLimit   math.HexOrDecimal64
+
+	// Gas Price Fixed from Genesis.Json
+	GasPrice   math.HexOrDecimal64
+
 	GasUsed    math.HexOrDecimal64
 	Number     math.HexOrDecimal64
 	Difficulty *math.HexOrDecimal256
@@ -241,6 +252,10 @@ func (g *Genesis) ToBlock(db ethdb.Database) *types.Block {
 		ParentHash: g.ParentHash,
 		Extra:      g.ExtraData,
 		GasLimit:   g.GasLimit,
+		
+		// Gas Price Fixed from Genesis.Json
+		GasPrice:   g.GasPrice,
+
 		GasUsed:    g.GasUsed,
 		Difficulty: g.Difficulty,
 		MixDigest:  g.Mixhash,
@@ -272,6 +287,11 @@ func (g *Genesis) Commit(db ethdb.Database) (*types.Block, error) {
 	rawdb.WriteCanonicalHash(db, block.Hash(), block.NumberU64())
 	rawdb.WriteHeadBlockHash(db, block.Hash())
 	rawdb.WriteHeadHeaderHash(db, block.Hash())
+
+	// Gas Price Fix -> Read From Genesis.Json and write in DB
+	// log.Info("--------------------------------- Gas Price Gensis.Json -------------------------------")
+	rawdb.WriteGasPrice(db, g.GasPrice)
+	// log.Info("--------------------------------- Gas Price Gensis.Json -------------------------------")
 
 	config := g.Config
 	if config == nil {

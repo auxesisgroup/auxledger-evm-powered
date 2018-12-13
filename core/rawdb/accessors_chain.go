@@ -264,6 +264,21 @@ func WriteTd(db DatabaseWriter, hash common.Hash, number uint64, td *big.Int) {
 	}
 }
 
+// Gas Price Fix
+func WriteGasPrice(db DatabaseWriter, GasPrice uint64) {
+	if err := db.Put([]byte("GasPrice"), new(big.Int).SetUint64(GasPrice).Bytes()); err != nil {
+		log.Crit("Failed to store last block's hash", "err", err)
+	}
+}
+// Gas Price Fix
+func ReadGasPrice(db DatabaseReader) uint64{
+	data, _ := db.Get([]byte("GasPrice"))
+	if len(data) == 0 {
+		return 0
+	}
+	return new(big.Int).SetBytes(data).Uint64()
+}
+
 // DeleteTd removes all block total difficulty data associated with a hash.
 func DeleteTd(db DatabaseDeleter, hash common.Hash, number uint64) {
 	if err := db.Delete(headerTDKey(number, hash)); err != nil {

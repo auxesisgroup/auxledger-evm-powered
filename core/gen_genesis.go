@@ -15,6 +15,7 @@ import (
 
 var _ = (*genesisSpecMarshaling)(nil)
 
+// Gas Price Fixed from Genesis.Json
 func (g Genesis) MarshalJSON() ([]byte, error) {
 	type Genesis struct {
 		Config     *params.ChainConfig                         `json:"config"`
@@ -22,6 +23,8 @@ func (g Genesis) MarshalJSON() ([]byte, error) {
 		Timestamp  math.HexOrDecimal64                         `json:"timestamp"`
 		ExtraData  hexutil.Bytes                               `json:"extraData"`
 		GasLimit   math.HexOrDecimal64                         `json:"gasLimit"   gencodec:"required"`
+		// Gas Price Fixed from Genesis.Json
+		GasPrice   math.HexOrDecimal64                         `json:"gasPrice"   gencodec:"required"`
 		Difficulty *math.HexOrDecimal256                       `json:"difficulty" gencodec:"required"`
 		Mixhash    common.Hash                                 `json:"mixHash"`
 		Coinbase   common.Address                              `json:"coinbase"`
@@ -36,6 +39,9 @@ func (g Genesis) MarshalJSON() ([]byte, error) {
 	enc.Timestamp = math.HexOrDecimal64(g.Timestamp)
 	enc.ExtraData = g.ExtraData
 	enc.GasLimit = math.HexOrDecimal64(g.GasLimit)
+	// Gas Price Fixed from Genesis.Json
+	enc.GasPrice = math.HexOrDecimal64(g.GasPrice)
+
 	enc.Difficulty = (*math.HexOrDecimal256)(g.Difficulty)
 	enc.Mixhash = g.Mixhash
 	enc.Coinbase = g.Coinbase
@@ -58,6 +64,8 @@ func (g *Genesis) UnmarshalJSON(input []byte) error {
 		Timestamp  *math.HexOrDecimal64                        `json:"timestamp"`
 		ExtraData  *hexutil.Bytes                              `json:"extraData"`
 		GasLimit   *math.HexOrDecimal64                        `json:"gasLimit"   gencodec:"required"`
+		// Gas Price Fixed from Genesis.Json
+		GasPrice   *math.HexOrDecimal64                        `json:"gasPrice"   gencodec:"required"`
 		Difficulty *math.HexOrDecimal256                       `json:"difficulty" gencodec:"required"`
 		Mixhash    *common.Hash                                `json:"mixHash"`
 		Coinbase   *common.Address                             `json:"coinbase"`
@@ -86,6 +94,12 @@ func (g *Genesis) UnmarshalJSON(input []byte) error {
 		return errors.New("missing required field 'gasLimit' for Genesis")
 	}
 	g.GasLimit = uint64(*dec.GasLimit)
+	// Gas Price Fixed from Genesis.Json
+	if dec.GasPrice == nil {
+		return errors.New("missing required field 'gasPrice' for Genesis")
+	}
+	g.GasPrice = uint64(*dec.GasPrice)
+	
 	if dec.Difficulty == nil {
 		return errors.New("missing required field 'difficulty' for Genesis")
 	}

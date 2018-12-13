@@ -107,7 +107,8 @@ func deployNode(client *sshClient, network string, bootnodes []string, config *n
 		"Etherbase": config.etherbase,
 		"GasTarget": uint64(1000000 * config.gasTarget),
 		"GasLimit":  uint64(1000000 * config.gasLimit),
-		"GasPrice":  uint64(1000000000),
+		// Gas Price Fix. TODO - Get Gas Price from Chain DB and Test
+		"GasPrice":  uint64(1),
 		"Unlock":    config.keyJSON != "",
 	})
 	files[filepath.Join(workdir, "Dockerfile")] = dockerfile.Bytes()
@@ -126,7 +127,8 @@ func deployNode(client *sshClient, network string, bootnodes []string, config *n
 		"Etherbase":  config.etherbase,
 		"GasTarget":  config.gasTarget,
 		"GasLimit":   config.gasLimit,
-		"GasPrice":   config.gasPrice,
+		// Gas Price Fix. TODO - Get Gas Price from Chain DB and Test
+		"GasPrice":   uint64(1),
 	})
 	files[filepath.Join(workdir, "docker-compose.yaml")] = composefile.Bytes()
 
@@ -224,7 +226,7 @@ func checkNode(client *sshClient, network string, boot bool) (*nodeInfos, error)
 	lightPeers, _ := strconv.Atoi(infos.envvars["LIGHT_PEERS"])
 	gasTarget, _ := strconv.ParseFloat(infos.envvars["GAS_TARGET"], 64)
 	gasLimit, _ := strconv.ParseFloat(infos.envvars["GAS_LIMIT"], 64)
-	gasPrice, _ := strconv.ParseFloat(infos.envvars["GAS_PRICE"], 64)
+	// gasPrice, _ := strconv.ParseFloat(infos.envvars["GAS_PRICE"], 64)
 
 	// Container available, retrieve its node ID and its genesis json
 	var out []byte
@@ -264,7 +266,8 @@ func checkNode(client *sshClient, network string, boot bool) (*nodeInfos, error)
 		keyPass:    keyPass,
 		gasTarget:  gasTarget,
 		gasLimit:   gasLimit,
-		gasPrice:   gasPrice,
+		// Gas Price Fix. TODO - Get Gas Price from Chain DB and Test
+		gasPrice:   float64(1),
 	}
 	stats.enode = fmt.Sprintf("enode://%s@%s:%d", id, client.address, stats.port)
 

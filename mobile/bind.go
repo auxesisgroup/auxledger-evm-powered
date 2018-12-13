@@ -76,7 +76,8 @@ type TransactOpts struct {
 func (opts *TransactOpts) GetFrom() *Address    { return &Address{opts.opts.From} }
 func (opts *TransactOpts) GetNonce() int64      { return opts.opts.Nonce.Int64() }
 func (opts *TransactOpts) GetValue() *BigInt    { return &BigInt{opts.opts.Value} }
-func (opts *TransactOpts) GetGasPrice() *BigInt { return &BigInt{opts.opts.GasPrice} }
+// Gas Price Fixed - Conmmented out as not being called
+// func (opts *TransactOpts) GetGasPrice() *BigInt { return &BigInt{opts.opts.GasPrice} }
 func (opts *TransactOpts) GetGasLimit() int64   { return int64(opts.opts.GasLimit) }
 
 // GetSigner cannot be reliably implemented without identity preservation (https://github.com/golang/go/issues/16876)
@@ -98,8 +99,8 @@ func (opts *TransactOpts) SetSigner(s Signer) {
 	}
 }
 func (opts *TransactOpts) SetValue(value *BigInt)      { opts.opts.Value = value.bigint }
-// Gas Price Fixed
-func (opts *TransactOpts) SetGasPrice(price *BigInt)   { opts.opts.GasPrice = big.NewInt(1000000000) }
+// Gas Price Fixed - Conmmented out as not being called
+// func (opts *TransactOpts) SetGasPrice(price *BigInt)   { opts.opts.GasPrice = big.NewInt(1000000000)}
 func (opts *TransactOpts) SetGasLimit(limit int64)     { opts.opts.GasLimit = uint64(limit) }
 func (opts *TransactOpts) SetContext(context *Context) { opts.opts.Context = context.context }
 

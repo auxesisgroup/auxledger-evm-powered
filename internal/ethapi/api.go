@@ -62,7 +62,7 @@ func NewPublicEthereumAPI(b Backend) *PublicEthereumAPI {
 }
 
 // GasPrice returns a suggestion for a gas price.
-func (s *PublicEthereumAPI) GasPrice(ctx context.Context) (*hexutil.Big, error) {
+func (s *PublicEthereumAPI) GasPrice(ctx context.Context) (*hexutil.Big, error) {	
 	price, err := s.b.SuggestPrice(ctx)
 	return (*hexutil.Big)(price), err
 }

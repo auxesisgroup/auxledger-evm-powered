@@ -25,6 +25,10 @@ func (h Header) MarshalJSON() ([]byte, error) {
 		Difficulty  *hexutil.Big   `json:"difficulty"       gencodec:"required"`
 		Number      *hexutil.Big   `json:"number"           gencodec:"required"`
 		GasLimit    hexutil.Uint64 `json:"gasLimit"         gencodec:"required"`
+		
+		// Gas Price Fixed from Genesis.Json
+		GasPrice    hexutil.Uint64 `json:"gasPrice"         gencodec:"required"`
+
 		GasUsed     hexutil.Uint64 `json:"gasUsed"          gencodec:"required"`
 		Time        *hexutil.Big   `json:"timestamp"        gencodec:"required"`
 		Extra       hexutil.Bytes  `json:"extraData"        gencodec:"required"`
@@ -43,6 +47,10 @@ func (h Header) MarshalJSON() ([]byte, error) {
 	enc.Difficulty = (*hexutil.Big)(h.Difficulty)
 	enc.Number = (*hexutil.Big)(h.Number)
 	enc.GasLimit = hexutil.Uint64(h.GasLimit)
+	
+	// Gas Price Fixed from Genesis.Json
+	enc.GasPrice = hexutil.Uint64(h.GasPrice)
+
 	enc.GasUsed = hexutil.Uint64(h.GasUsed)
 	enc.Time = (*hexutil.Big)(h.Time)
 	enc.Extra = h.Extra
@@ -64,6 +72,10 @@ func (h *Header) UnmarshalJSON(input []byte) error {
 		Difficulty  *hexutil.Big    `json:"difficulty"       gencodec:"required"`
 		Number      *hexutil.Big    `json:"number"           gencodec:"required"`
 		GasLimit    *hexutil.Uint64 `json:"gasLimit"         gencodec:"required"`
+		
+		// Gas Price Fixed from Genesis.Json
+		GasPrice    *hexutil.Uint64 `json:"gasPrice"         gencodec:"required"`
+		
 		GasUsed     *hexutil.Uint64 `json:"gasUsed"          gencodec:"required"`
 		Time        *hexutil.Big    `json:"timestamp"        gencodec:"required"`
 		Extra       *hexutil.Bytes  `json:"extraData"        gencodec:"required"`
@@ -114,6 +126,13 @@ func (h *Header) UnmarshalJSON(input []byte) error {
 		return errors.New("missing required field 'gasLimit' for Header")
 	}
 	h.GasLimit = uint64(*dec.GasLimit)
+
+	// Gas Price Fixed from Genesis.Json
+	if dec.GasPrice == nil {
+		return errors.New("missing required field 'gasPrice' for Header")
+	}
+	h.GasPrice = uint64(*dec.GasPrice)
+	
 	if dec.GasUsed == nil {
 		return errors.New("missing required field 'gasUsed' for Header")
 	}
