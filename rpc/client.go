@@ -254,15 +254,21 @@ func (c *Client) nextID() json.RawMessage {
 // SupportedModules calls the rpc_modules method, retrieving the list of
 // APIs that are available on the server.
 func (c *Client) SupportedModules() (map[string]string, error) {
+	log.Info("__________inside SupportedModules_______________--")
 	var result map[string]string
 	ctx, cancel := context.WithTimeout(context.Background(), subscribeTimeout)
 	defer cancel()
 	err := c.CallContext(ctx, &result, "rpc_modules")
+	log.Info("printing result in func Client")
+	for key,value := range(result){
+		fmt.Println(key,value)
+	}
 	return result, err
 }
 
 // Close closes the client, aborting any in-flight requests.
 func (c *Client) Close() {
+	log.Info("_________________Close___________________")
 	if c.isHTTP {
 		return
 	}
@@ -279,6 +285,9 @@ func (c *Client) Close() {
 // The result must be a pointer so that package json can unmarshal into it. You
 // can also pass nil, in which case the result is ignored.
 func (c *Client) Call(result interface{}, method string, args ...interface{}) error {
+	log.Info("___________inside call________________-")
+	fmt.Println("method is", method)
+	// fmt.Println("result here is ",string(result))
 	ctx := context.Background()
 	return c.CallContext(ctx, result, method, args...)
 }
@@ -289,15 +298,20 @@ func (c *Client) Call(result interface{}, method string, args ...interface{}) er
 // The result must be a pointer so that package json can unmarshal into it. You
 // can also pass nil, in which case the result is ignored.
 func (c *Client) CallContext(ctx context.Context, result interface{}, method string, args ...interface{}) error {
+	log.Info("____________inside CallContext______________________")
 	msg, err := c.newMessage(method, args...)
+	fmt.Println(msg)
 	if err != nil {
 		return err
 	}
 	op := &requestOp{ids: []json.RawMessage{msg.ID}, resp: make(chan *jsonrpcMessage, 1)}
-
+	fmt.Println(op)
 	if c.isHTTP {
+		log.Info("***********is http************")
 		err = c.sendHTTP(ctx, op, msg)
 	} else {
+		log.Info("***********is NOT http************")
+
 		err = c.send(ctx, op, msg)
 	}
 	if err != nil {
@@ -313,6 +327,10 @@ func (c *Client) CallContext(ctx context.Context, result interface{}, method str
 	case len(resp.Result) == 0:
 		return ErrNoResult
 	default:
+		log.Info("_____printing func callcontext_______")
+		parin_ := string(resp.Result)
+		fmt.Println(parin_)
+
 		return json.Unmarshal(resp.Result, &result)
 	}
 }
@@ -392,7 +410,7 @@ func (c *Client) BatchCallContext(ctx context.Context, b []BatchElem) error {
 
 // EthSubscribe registers a subscripion under the "eth" namespace.
 func (c *Client) EthSubscribe(ctx context.Context, channel interface{}, args ...interface{}) (*ClientSubscription, error) {
-	return c.Subscribe(ctx, "eth", channel, args...)
+	return c.Subscribe(ctx, "aux", channel, args...)
 }
 
 // ShhSubscribe registers a subscripion under the "shh" namespace.
@@ -414,6 +432,7 @@ func (c *Client) ShhSubscribe(ctx context.Context, channel interface{}, args ...
 // that the channel usually has at least one reader to prevent this issue.
 func (c *Client) Subscribe(ctx context.Context, namespace string, channel interface{}, args ...interface{}) (*ClientSubscription, error) {
 	// Check type of channel first.
+	log.Info("____________Subscribe__________________---")
 	chanVal := reflect.ValueOf(channel)
 	if chanVal.Kind() != reflect.Chan || chanVal.Type().ChanDir()&reflect.SendDir == 0 {
 		panic("first argument to Subscribe must be a writable channel")
@@ -427,8 +446,12 @@ func (c *Client) Subscribe(ctx context.Context, namespace string, channel interf
 
 	msg, err := c.newMessage(namespace+subscribeMethodSuffix, args...)
 	if err != nil {
+		log.Info("printing  Subscribe___________")
+		fmt.Println(err)
 		return nil, err
 	}
+	log.Info("printing Subscibe _____________")
+	fmt.Println(msg)
 	op := &requestOp{
 		ids:  []json.RawMessage{msg.ID},
 		resp: make(chan *jsonrpcMessage),
@@ -459,10 +482,15 @@ func (c *Client) newMessage(method string, paramsIn ...interface{}) (*jsonrpcMes
 func (c *Client) send(ctx context.Context, op *requestOp, msg interface{}) error {
 	select {
 	case c.requestOp <- op:
+		log.Info("", "msg", log.Lazy{Fn: func() string {   //this is for my(cryptoktms) reference
+		return fmt.Sprint("sending ", msg)
+		}})
 		log.Trace("", "msg", log.Lazy{Fn: func() string {
 			return fmt.Sprint("sending ", msg)
 		}})
+		
 		err := c.write(ctx, msg)
+
 		c.sendDone <- err
 		return err
 	case <-ctx.Done():
@@ -475,6 +503,8 @@ func (c *Client) send(ctx context.Context, op *requestOp, msg interface{}) error
 }
 
 func (c *Client) write(ctx context.Context, msg interface{}) error {
+
+	log.Info("____________inside func write 507_____________")
 	deadline, ok := ctx.Deadline()
 	if !ok {
 		deadline = time.Now().Add(defaultWriteTimeout)
@@ -485,10 +515,16 @@ func (c *Client) write(ctx context.Context, msg interface{}) error {
 			return err
 		}
 	}
+	//came till here
 	c.writeConn.SetWriteDeadline(deadline)
+
+	log.Info("-----------------------------")	
 	err := json.NewEncoder(c.writeConn).Encode(msg)
+	log.Info("-----------------every work is done it come back here------------")	
 	c.writeConn.SetWriteDeadline(time.Time{})
+
 	if err != nil {
+
 		c.writeConn = nil
 	}
 	return err

@@ -77,6 +77,7 @@ func (s *RPCService) Modules() map[string]string {
 // match the criteria to be either a RPC method or a subscription an error is returned. Otherwise a new service is
 // created and added to the service collection this server instance serves.
 func (s *Server) RegisterName(name string, rcvr interface{}) error {
+	log.Info("________________RegisterName_________________________")
 	if s.services == nil {
 		s.services = make(serviceRegistry)
 	}
@@ -123,7 +124,14 @@ func (s *Server) RegisterName(name string, rcvr interface{}) error {
 // requests until the codec returns an error when reading a request (in most cases
 // an EOF). It executes requests in parallel when singleShot is false.
 func (s *Server) serveRequest(ctx context.Context, codec ServerCodec, singleShot bool, options CodecOption) error {
+	log.Info("____________________serveRequest________________________")
+	// fmt.Println("_______________ServerCodec is :: ", ServerCodec)
+	// fmt.Println("_______________singleShot is :: ", singleShot)
+	// fmt.Println("_______________CodecOption is :: ", CodecOption)
+
+
 	var pend sync.WaitGroup
+
 
 	defer func() {
 		if err := recover(); err != nil {
@@ -205,6 +213,9 @@ func (s *Server) serveRequest(ctx context.Context, codec ServerCodec, singleShot
 			}
 		}(reqs, batch)
 	}
+
+
+	log.Info("_____serverRequest completed___________")
 	return nil
 }
 
@@ -212,6 +223,7 @@ func (s *Server) serveRequest(ctx context.Context, codec ServerCodec, singleShot
 // response back using the given codec. It will block until the codec is closed or the server is
 // stopped. In either case the codec is closed.
 func (s *Server) ServeCodec(codec ServerCodec, options CodecOption) {
+	log.Info("______________ServeCodec_______________")
 	defer codec.Close()
 	s.serveRequest(context.Background(), codec, false, options)
 }
@@ -220,6 +232,7 @@ func (s *Server) ServeCodec(codec ServerCodec, options CodecOption) {
 // close the codec unless a non-recoverable error has occurred. Note, this method will return after
 // a single request has been processed!
 func (s *Server) ServeSingleRequest(ctx context.Context, codec ServerCodec, options CodecOption) {
+	log.Info("______________ServeSingleRequest_______________")
 	s.serveRequest(ctx, codec, true, options)
 }
 
@@ -372,10 +385,13 @@ func (s *Server) execBatch(ctx context.Context, codec ServerCodec, requests []*s
 // of requests, an indication if the request was a batch, the invalid request identifier and an
 // error when the request could not be read/parsed.
 func (s *Server) readRequest(codec ServerCodec) ([]*serverRequest, bool, Error) {
+	log.Info("_____________readRequest_______________-")
 	reqs, batch, err := codec.ReadRequestHeaders()
 	if err != nil {
 		return nil, batch, err
 	}
+
+	fmt.Println("---->readRequest",reqs)
 
 	requests := make([]*serverRequest, len(reqs))
 
@@ -405,7 +421,7 @@ func (s *Server) readRequest(codec ServerCodec) ([]*serverRequest, bool, Error) 
 			continue
 		}
 
-		if r.isPubSub { // eth_subscribe, r.method contains the subscription method name
+		if r.isPubSub { // aux_subscribe, r.method contains the subscription method name
 			if callb, ok := svc.subscriptions[r.method]; ok {
 				requests[i] = &serverRequest{id: r.id, svcname: svc.name, callb: callb}
 				if r.params != nil && len(callb.argTypes) > 0 {
@@ -437,6 +453,6 @@ func (s *Server) readRequest(codec ServerCodec) ([]*serverRequest, bool, Error) 
 
 		requests[i] = &serverRequest{id: r.id, err: &methodNotFoundError{r.service, r.method}}
 	}
-
+log.Info("_____________readRequest completed_______________-")
 	return requests, batch, nil
 }

@@ -1,0 +1,526 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="f1cbe5ad-d9f4-4b91-ad81-d5aa029fce3c" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/accounts.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/accounts.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/accounts/abi.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/accounts/abi.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/accounts/abi/bind.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/accounts/abi/bind.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/accounts/abi/bind/backends.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/accounts/abi/bind/backends.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/accounts/keystore.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/accounts/keystore.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/accounts/usbwallet.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/accounts/usbwallet.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/accounts/usbwallet/internal/trezor.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/accounts/usbwallet/internal/trezor.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/cmd/evm/internal/compiler.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/cmd/evm/internal/compiler.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/cmd/internal/browser.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/cmd/internal/browser.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/cmd/utils.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/cmd/utils.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/common.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/common.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/common/bitutil.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/common/bitutil.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/common/compiler.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/common/compiler.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/common/fdlimit.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/common/fdlimit.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/common/hexutil.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/common/hexutil.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/common/math.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/common/math.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/common/mclock.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/common/mclock.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/common/prque.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/common/prque.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/consensus.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/consensus.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/consensus/clique.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/consensus/clique.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/consensus/ethash.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/consensus/ethash.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/consensus/misc.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/consensus/misc.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/console.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/console.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/contracts/chequebook.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/contracts/chequebook.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/contracts/chequebook/contract.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/contracts/chequebook/contract.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/contracts/ens.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/contracts/ens.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/contracts/ens/contract.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/contracts/ens/contract.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/core.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/core.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/core/asm.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/core/asm.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/core/bloombits.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/core/bloombits.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/core/rawdb.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/core/rawdb.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/core/state.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/core/state.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/core/types.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/core/types.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/core/vm.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/core/vm.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/core/vm/runtime.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/core/vm/runtime.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/crypto.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/crypto.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/crypto/bn256.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/crypto/bn256.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/crypto/bn256/cloudflare.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/crypto/bn256/cloudflare.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/crypto/bn256/google.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/crypto/bn256/google.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/crypto/ecies.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/crypto/ecies.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/crypto/secp256k1.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/crypto/secp256k1.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/crypto/sha3.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/crypto/sha3.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/dashboard.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/dashboard.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/eth.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/eth.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/eth/downloader.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/eth/downloader.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/eth/fetcher.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/eth/fetcher.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/eth/filters.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/eth/filters.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/eth/gasprice.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/eth/gasprice.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/eth/tracers.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/eth/tracers.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/eth/tracers/internal/tracers.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/eth/tracers/internal/tracers.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/ethclient.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/ethclient.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/ethdb.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/ethdb.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/ethstats.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/ethstats.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/event.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/event.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/event/filter.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/event/filter.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/internal/build.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/internal/build.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/internal/cmdtest.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/internal/cmdtest.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/internal/debug.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/internal/debug.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/internal/ethapi.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/internal/ethapi.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/internal/guide.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/internal/guide.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/internal/jsre.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/internal/jsre.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/internal/jsre/deps.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/internal/jsre/deps.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/internal/web3ext.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/internal/web3ext.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/les.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/les.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/les/flowcontrol.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/les/flowcontrol.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/light.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/light.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/log.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/log.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/log/term.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/log/term.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/metrics.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/metrics.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/metrics/exp.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/metrics/exp.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/metrics/influxdb.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/metrics/influxdb.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/metrics/librato.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/metrics/librato.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/miner.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/miner.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/mobile.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/mobile.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/node.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/node.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/p2p.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/p2p.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/p2p/discover.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/p2p/discover.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/p2p/discv5.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/p2p/discv5.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/p2p/enode.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/p2p/enode.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/p2p/enr.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/p2p/enr.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/p2p/nat.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/p2p/nat.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/p2p/netutil.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/p2p/netutil.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/p2p/protocols.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/p2p/protocols.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/p2p/simulations.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/p2p/simulations.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/p2p/simulations/adapters.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/p2p/simulations/adapters.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/p2p/simulations/pipes.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/p2p/simulations/pipes.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/p2p/testing.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/p2p/testing.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/params.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/params.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/rlp.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/rlp.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/rpc.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/rpc.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/signer/core.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/signer/core.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/signer/rules.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/signer/rules.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/signer/rules/deps.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/signer/rules/deps.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/signer/storage.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/signer/storage.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/swarm.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/swarm.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/swarm/api.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/swarm/api.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/swarm/api/client.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/swarm/api/client.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/swarm/api/http.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/swarm/api/http.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/swarm/bmt.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/swarm/bmt.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/swarm/chunk.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/swarm/chunk.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/swarm/fuse.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/swarm/fuse.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/swarm/log.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/swarm/log.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/swarm/metrics.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/swarm/metrics.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/swarm/multihash.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/swarm/multihash.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/swarm/network.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/swarm/network.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/swarm/network/bitvector.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/swarm/network/bitvector.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/swarm/network/priorityqueue.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/swarm/network/priorityqueue.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/swarm/network/simulation.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/swarm/network/simulation.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/swarm/network/simulations/discovery.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/swarm/network/simulations/discovery.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/swarm/network/stream.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/swarm/network/stream.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/swarm/network/stream/intervals.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/swarm/network/stream/intervals.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/swarm/pot.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/swarm/pot.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/swarm/pss.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/swarm/pss.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/swarm/pss/client.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/swarm/pss/client.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/swarm/pss/notify.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/swarm/pss/notify.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/swarm/sctx.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/swarm/sctx.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/swarm/services/swap.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/swarm/services/swap.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/swarm/services/swap/swap.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/swarm/services/swap/swap.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/swarm/spancontext.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/swarm/spancontext.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/swarm/state.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/swarm/state.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/swarm/storage.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/swarm/storage.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/swarm/storage/encryption.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/swarm/storage/encryption.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/swarm/storage/mock.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/swarm/storage/mock.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/swarm/storage/mock/db.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/swarm/storage/mock/db.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/swarm/storage/mock/mem.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/swarm/storage/mock/mem.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/swarm/storage/mock/rpc.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/swarm/storage/mock/rpc.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/swarm/storage/mock/test.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/swarm/storage/mock/test.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/swarm/storage/mru.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/swarm/storage/mru.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/swarm/storage/mru/lookup.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/swarm/storage/mru/lookup.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/swarm/testutil.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/swarm/testutil.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/swarm/tracing.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/swarm/tracing.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/swarm/version.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/swarm/version.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/tests.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/tests.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/trie.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/trie.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/whisper/mailserver.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/whisper/mailserver.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/whisper/shhclient.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/whisper/shhclient.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/whisper/whisperv5.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/whisper/whisperv5.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/whisper/whisperv6.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/whisper/whisperv6.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/accounts.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/accounts.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/accounts/abi.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/accounts/abi.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/accounts/abi/bind.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/accounts/abi/bind.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/accounts/abi/bind/backends.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/accounts/abi/bind/backends.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/accounts/keystore.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/accounts/keystore.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/accounts/usbwallet.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/accounts/usbwallet.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/accounts/usbwallet/internal/trezor.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/accounts/usbwallet/internal/trezor.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/cmd/evm/internal/compiler.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/cmd/evm/internal/compiler.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/cmd/internal/browser.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/cmd/internal/browser.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/cmd/utils.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/cmd/utils.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/common.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/common.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/common/bitutil.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/common/bitutil.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/common/compiler.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/common/compiler.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/common/fdlimit.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/common/fdlimit.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/common/hexutil.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/common/hexutil.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/common/math.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/common/math.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/common/mclock.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/common/mclock.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/common/prque.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/common/prque.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/consensus.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/consensus.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/consensus/clique.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/consensus/clique.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/consensus/ethash.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/consensus/ethash.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/consensus/misc.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/consensus/misc.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/console.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/console.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/contracts/chequebook.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/contracts/chequebook.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/contracts/chequebook/contract.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/contracts/chequebook/contract.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/contracts/ens.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/contracts/ens.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/contracts/ens/contract.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/contracts/ens/contract.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/core.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/core.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/core/asm.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/core/asm.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/core/bloombits.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/core/bloombits.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/core/rawdb.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/core/rawdb.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/core/state.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/core/state.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/core/types.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/core/types.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/core/vm.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/core/vm.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/core/vm/runtime.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/core/vm/runtime.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/crypto.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/crypto.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/crypto/bn256.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/crypto/bn256.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/crypto/bn256/cloudflare.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/crypto/bn256/cloudflare.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/crypto/bn256/google.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/crypto/bn256/google.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/crypto/ecies.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/crypto/ecies.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/crypto/secp256k1.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/crypto/secp256k1.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/crypto/sha3.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/crypto/sha3.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/dashboard.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/dashboard.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/eth.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/eth.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/eth/downloader.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/eth/downloader.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/eth/fetcher.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/eth/fetcher.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/eth/filters.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/eth/filters.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/eth/gasprice.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/eth/gasprice.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/eth/tracers.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/eth/tracers.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/eth/tracers/internal/tracers.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/eth/tracers/internal/tracers.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/ethclient.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/ethclient.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/ethdb.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/ethdb.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/ethstats.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/ethstats.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/event.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/event.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/event/filter.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/event/filter.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/internal/build.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/internal/build.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/internal/cmdtest.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/internal/cmdtest.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/internal/debug.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/internal/debug.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/internal/ethapi.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/internal/ethapi.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/internal/guide.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/internal/guide.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/internal/jsre.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/internal/jsre.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/internal/jsre/deps.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/internal/jsre/deps.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/internal/web3ext.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/internal/web3ext.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/les.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/les.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/les/flowcontrol.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/les/flowcontrol.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/light.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/light.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/log.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/log.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/log/term.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/log/term.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/metrics.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/metrics.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/metrics/exp.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/metrics/exp.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/metrics/influxdb.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/metrics/influxdb.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/metrics/librato.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/metrics/librato.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/miner.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/miner.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/mobile.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/mobile.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/node.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/node.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/p2p.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/p2p.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/p2p/discover.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/p2p/discover.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/p2p/discv5.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/p2p/discv5.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/p2p/enode.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/p2p/enode.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/p2p/enr.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/p2p/enr.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/p2p/nat.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/p2p/nat.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/p2p/netutil.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/p2p/netutil.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/p2p/protocols.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/p2p/protocols.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/p2p/simulations.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/p2p/simulations.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/p2p/simulations/adapters.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/p2p/simulations/adapters.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/p2p/simulations/pipes.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/p2p/simulations/pipes.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/p2p/testing.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/p2p/testing.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/params.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/params.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/rlp.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/rlp.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/rpc.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/rpc.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/signer/core.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/signer/core.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/signer/rules.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/signer/rules.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/signer/rules/deps.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/signer/rules/deps.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/signer/storage.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/signer/storage.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/swarm.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/swarm.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/swarm/api.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/swarm/api.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/swarm/api/client.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/swarm/api/client.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/swarm/api/http.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/swarm/api/http.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/swarm/bmt.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/swarm/bmt.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/swarm/chunk.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/swarm/chunk.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/swarm/fuse.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/swarm/fuse.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/swarm/log.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/swarm/log.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/swarm/metrics.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/swarm/metrics.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/swarm/multihash.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/swarm/multihash.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/swarm/network.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/swarm/network.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/swarm/network/bitvector.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/swarm/network/bitvector.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/swarm/network/priorityqueue.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/swarm/network/priorityqueue.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/swarm/network/simulation.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/swarm/network/simulation.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/swarm/network/simulations/discovery.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/swarm/network/simulations/discovery.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/swarm/network/stream.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/swarm/network/stream.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/swarm/network/stream/intervals.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/swarm/network/stream/intervals.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/swarm/pot.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/swarm/pot.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/swarm/pss.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/swarm/pss.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/swarm/pss/client.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/swarm/pss/client.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/swarm/pss/notify.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/swarm/pss/notify.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/swarm/sctx.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/swarm/sctx.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/swarm/services/swap.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/swarm/services/swap.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/swarm/services/swap/swap.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/swarm/services/swap/swap.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/swarm/spancontext.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/swarm/spancontext.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/swarm/state.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/swarm/state.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/swarm/storage.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/swarm/storage.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/swarm/storage/encryption.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/swarm/storage/encryption.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/swarm/storage/mock.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/swarm/storage/mock.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/swarm/storage/mock/db.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/swarm/storage/mock/db.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/swarm/storage/mock/mem.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/swarm/storage/mock/mem.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/swarm/storage/mock/rpc.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/swarm/storage/mock/rpc.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/swarm/storage/mock/test.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/swarm/storage/mock/test.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/swarm/storage/mru.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/swarm/storage/mru.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/swarm/storage/mru/lookup.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/swarm/storage/mru/lookup.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/swarm/testutil.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/swarm/testutil.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/swarm/tracing.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/swarm/tracing.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/swarm/version.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/swarm/version.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/tests.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/tests.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/trie.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/trie.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/whisper/mailserver.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/whisper/mailserver.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/whisper/shhclient.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/whisper/shhclient.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/whisper/whisperv5.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/whisper/whisperv5.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/whisper/whisperv6.a" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/build/_workspace/pkg/linux_amd64/github.com/ethereum/go-ethereum/whisper/whisperv6.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/cmd/gaux/consolecmd_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/cmd/gaux/consolecmd_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/rpc/client.go" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/rpc/client.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/rpc/json.go" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/rpc/json.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/rpc/server.go" beforeDir="false" afterPath="$PROJECT_DIR$/build/_workspace/src/github.com/ethereum/go-ethereum/rpc/server.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/gaux/consolecmd_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/gaux/consolecmd_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rpc/client.go" beforeDir="false" afterPath="$PROJECT_DIR$/rpc/client.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rpc/http.go" beforeDir="false" afterPath="$PROJECT_DIR$/rpc/http.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rpc/json.go" beforeDir="false" afterPath="$PROJECT_DIR$/rpc/json.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rpc/server.go" beforeDir="false" afterPath="$PROJECT_DIR$/rpc/server.go" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/rpc/client.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-24">
+              <caret line="249" column="43" lean-forward="true" selection-start-line="249" selection-start-column="43" selection-end-line="249" selection-end-column="43" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/rpc/json.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="505">
+              <caret line="177" column="1" selection-start-line="177" selection-start-column="1" selection-end-line="177" selection-end-column="1" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>func (c *Client) CallContext(ctx context.Context, result interface{}, method string, args ...interface{}) error</find>
+      <find>____________parse request started___________________</find>
+      <find>printing func callcontext</find>
+      <find>print</find>
+      <find>func (c *Client) SupportedModules() (map[string]string, error)</find>
+      <find>inside call</find>
+      <find>NewEncoder</find>
+    </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GradleLocalSettings">
+    <option name="projectSyncType">
+      <map>
+        <entry key="$PROJECT_DIR$/../../kot/spring-boot-kotlin-demo" value="PREVIEW" />
+      </map>
+    </option>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/rpc/json.go" />
+        <option value="$PROJECT_DIR$/rpc/client.go" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="65" />
+    <option name="y" value="-4" />
+    <option name="width" value="1855" />
+    <option name="height" value="1084" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="auxledger-evm-powered" type="b2602c69:ProjectViewProjectNode" />
+              <item name="auxledger-evm-powered" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="auxledger-evm-powered" type="b2602c69:ProjectViewProjectNode" />
+              <item name="auxledger-evm-powered" type="462c0819:PsiDirectoryNode" />
+              <item name="rpc" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="AndroidView" />
+      <pane id="PackagesPane" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="go.gopath.indexing.explicitly.defined" value="true" />
+    <property name="go.vendoring.notification.had.been.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="Application" factoryName="Application">
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <patterns />
+    </configuration>
+    <configuration default="true" type="TestNG" factoryName="TestNG">
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SUITE_NAME" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="GROUP_NAME" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="OUTPUT_DIRECTORY" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <option name="USE_DEFAULT_REPORTERS" value="false" />
+      <option name="PROPERTIES_FILE" />
+      <properties />
+      <listeners />
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="f1cbe5ad-d9f4-4b91-ad81-d5aa029fce3c" name="Default" comment="" />
+      <created>1544693701847</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1544693701847</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="65" y="-4" width="1855" height="1084" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1116639" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Image Layers" order="2" />
+      <window_info id="Designer" order="3" />
+      <window_info id="UI Designer" order="4" />
+      <window_info id="Capture Tool" order="5" />
+      <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info anchor="bottom" id="Database Changes" />
+      <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Version Control" order="7" />
+      <window_info anchor="bottom" id="Terminal" order="8" />
+      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
+      <window_info anchor="right" id="Database" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Capture Analysis" order="4" />
+      <window_info anchor="right" id="Theme Preview" order="5" />
+      <window_info anchor="right" id="Palette&#9;" order="6" />
+      <window_info anchor="right" id="Maven Projects" order="7" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/rpc/json.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="505">
+          <caret line="177" column="1" selection-start-line="177" selection-start-column="1" selection-end-line="177" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rpc/client.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-24">
+          <caret line="249" column="43" lean-forward="true" selection-start-line="249" selection-start-column="43" selection-end-line="249" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ProjectJDKs.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>

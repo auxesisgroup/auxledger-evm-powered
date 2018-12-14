@@ -137,6 +137,7 @@ func isBatch(msg json.RawMessage) bool {
 // return a collection of requests, an indication if these requests are in batch
 // form or an error when the incoming message could not be read/parsed.
 func (c *jsonCodec) ReadRequestHeaders() ([]rpcRequest, bool, Error) {
+	log.Info("_______ReadRequestHeaders_____________")
 	c.decMu.Lock()
 	defer c.decMu.Unlock()
 
@@ -144,9 +145,19 @@ func (c *jsonCodec) ReadRequestHeaders() ([]rpcRequest, bool, Error) {
 	if err := c.decode(&incomingMsg); err != nil {
 		return nil, false, &invalidRequestError{err.Error()}
 	}
+
+	fmt.Println("--------------incoming msg is ------->",string(incomingMsg))
+	// for key,val := range(incomingMsg){
+
+	// 	fmt.Println(string(key),stringval)
+
+	// }
 	if isBatch(incomingMsg) {
+
+		fmt.Println("________is batch_____")
 		return parseBatchRequest(incomingMsg)
 	}
+	fmt.Println("________is NOT batch_____")
 	return parseRequest(incomingMsg)
 }
 
@@ -170,17 +181,26 @@ func checkReqId(reqId json.RawMessage) error {
 // the parsed request, an indication if the request was a batch or an error when
 // the request could not be parsed.
 func parseRequest(incomingMsg json.RawMessage) ([]rpcRequest, bool, Error) {
+	log.Info("__***__________parse request started___________________")
 	var in jsonRequest
 	if err := json.Unmarshal(incomingMsg, &in); err != nil {
 		return nil, false, &invalidMessageError{err.Error()}
 	}
+	// // in.Method = "eth_accounts"
+	// fmt.Println("---parsing going on ",in.Method)
+ //    fmt.Println(reflect.TypeOf(in))
+ //    fmt.Println(reflect.TypeOf(in.Method))
+
 
 	if err := checkReqId(in.Id); err != nil {
 		return nil, false, &invalidMessageError{err.Error()}
 	}
 
+
+
 	// subscribe are special, they will always use `subscribeMethod` as first param in the payload
 	if strings.HasSuffix(in.Method, subscribeMethodSuffix) {
+		log.Info("********has suffix - subscribeMethodSuffix************")
 		reqs := []rpcRequest{{id: &in.Id, isPubSub: true}}
 		if len(in.Payload) > 0 {
 			// first param must be subscription name
@@ -197,20 +217,30 @@ func parseRequest(incomingMsg json.RawMessage) ([]rpcRequest, bool, Error) {
 		return nil, false, &invalidRequestError{"Unable to parse subscription request"}
 	}
 
+
 	if strings.HasSuffix(in.Method, unsubscribeMethodSuffix) {
+		log.Info("********has suffix - unsubscribeMethodSuffix************")
 		return []rpcRequest{{id: &in.Id, isPubSub: true,
 			method: in.Method, params: in.Payload}}, false, nil
 	}
 
+	log.Info("____________pass>>>>>>>>>>>>>>>>")
+
 	elems := strings.Split(in.Method, serviceMethodSeparator)
+	fmt.Println(elems)
 	if len(elems) != 2 {
 		return nil, false, &methodNotFoundError{in.Method, ""}
 	}
+	if(elems[0] !="rpc" && elems[0] == "aux"){
+		elems[0] = "eth"
+	}
+
 
 	// regular RPC call
 	if len(in.Payload) == 0 {
 		return []rpcRequest{{service: elems[0], method: elems[1], id: &in.Id}}, false, nil
 	}
+	log.Info("___***_________parse request completed___________________")
 
 	return []rpcRequest{{service: elems[0], method: elems[1], id: &in.Id, params: in.Payload}}, false, nil
 }

@@ -223,7 +223,10 @@ func NewHTTPServer(cors []string, vhosts []string, timeouts HTTPTimeouts, srv *S
 
 // ServeHTTP serves JSON-RPC requests over HTTP.
 func (srv *Server) ServeHTTP(w http.ResponseWriter, r *http.Request) {
+	fmt.Println("____________ServeHTTP________")
 	// Permit dumb empty requests for remote health-checks (AWS)
+	fmt.Println(*r)
+	fmt.Println("_____",r.Method)
 	if r.Method == http.MethodGet && r.ContentLength == 0 && r.URL.RawQuery == "" {
 		return
 	}
