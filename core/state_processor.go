@@ -92,12 +92,12 @@ func ApplyTransaction(config *params.ChainConfig, bc ChainContext, author *commo
 
 	msg, err := tx.AsMessage(types.MakeSigner(config, header.Number))
 
-	log.Info("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA")
-	log.Info("msg.ChangeState()"," : ", msg.ChangeState())
-	log.Info("msg.ChangeStateTo()"," : ", msg.ChangeStateTo())
-	log.Info("msg.ChangeRole()"," : ", msg.ChangeRole())
-	log.Info("msg.ChangeRoleTo()"," : ", msg.ChangeRoleTo())
-	log.Info("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA")
+	// log.Info("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA")
+	// log.Info("msg.ChangeState()"," : ", msg.ChangeState())
+	// log.Info("msg.ChangeStateTo()"," : ", msg.ChangeStateTo())
+	// log.Info("msg.ChangeRole()"," : ", msg.ChangeRole())
+	// log.Info("msg.ChangeRoleTo()"," : ", msg.ChangeRoleTo())
+	// log.Info("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA")
 
 	if err != nil {
 		return nil, 0, err

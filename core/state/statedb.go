@@ -203,11 +203,11 @@ func (self *StateDB) GetBalance(addr common.Address) *big.Int {
 
 	stateObject := self.getStateObject(addr)
 
-	// log.Info("****************************************************************************************************************************")
-	// log.Info("Address : ", " : ", addr)
-	// log.Info("IsPartOfNetwork ", " : ",self.GetIsPartOfNetwork(addr))
-	// log.Info("Role ", " : ",self.GetRole(addr))
-	// log.Info("****************************************************************************************************************************")
+	log.Info("****************************************************************************************************************************")
+	log.Info("Address : ", " : ", addr)
+	log.Info("IsPartOfNetwork ", " : ",self.GetIsPartOfNetwork(addr))
+	log.Info("Role ", " : ",self.GetRole(addr))
+	log.Info("****************************************************************************************************************************")
 
 	if stateObject != nil {
 		return stateObject.Balance()
