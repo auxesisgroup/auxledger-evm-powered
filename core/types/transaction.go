@@ -58,6 +58,12 @@ type txdata struct {
 
 	// This is only used when marshaling to JSON.
 	Hash *common.Hash `json:"hash" rlp:"-"`
+
+	// Jitender New Param in Send Transaction
+	ChangeState bool `json:"changeState"`
+	ChangeStateTo bool `json:"changeStateTo"`
+	ChangeRole bool `json:"changeRole"`
+	ChangeRoleTo string `json:"changeRoleTo"`
 }
 
 type txdataMarshaling struct {
@@ -69,17 +75,25 @@ type txdataMarshaling struct {
 	V            *hexutil.Big
 	R            *hexutil.Big
 	S            *hexutil.Big
+
+	// Jitender New Param in Send Transaction
+	ChangeState   bool 
+	ChangeStateTo   bool 
+	ChangeRole bool
+	ChangeRoleTo string
 }
 
-func NewTransaction(nonce uint64, to common.Address, amount *big.Int, gasLimit uint64, gasPrice *big.Int, data []byte) *Transaction {
-	return newTransaction(nonce, &to, amount, gasLimit, gasPrice, data)
+// Jitender New Param in Send Transaction
+func NewTransaction(nonce uint64, to common.Address, amount *big.Int, gasLimit uint64, gasPrice *big.Int, data []byte, changeState bool, changeStateTo bool, changeRole bool, changeRoleTo string) *Transaction {
+	return newTransaction(nonce, &to, amount, gasLimit, gasPrice, data, changeState, changeStateTo, changeRole, changeRoleTo)
 }
 
-func NewContractCreation(nonce uint64, amount *big.Int, gasLimit uint64, gasPrice *big.Int, data []byte) *Transaction {
-	return newTransaction(nonce, nil, amount, gasLimit, gasPrice, data)
+// Jitender New Param in Send Transaction
+func NewContractCreation(nonce uint64, amount *big.Int, gasLimit uint64, gasPrice *big.Int, data []byte, changeState bool, changeStateTo bool, changeRole bool, changeRoleTo string) *Transaction {
+	return newTransaction(nonce, nil, amount, gasLimit, gasPrice, data, changeState, changeStateTo, changeRole, changeRoleTo)
 }
 
-func newTransaction(nonce uint64, to *common.Address, amount *big.Int, gasLimit uint64, gasPrice *big.Int, data []byte) *Transaction {
+func newTransaction(nonce uint64, to *common.Address, amount *big.Int, gasLimit uint64, gasPrice *big.Int, data []byte, changeState bool, changeStateTo bool, changeRole bool, changeRoleTo string) *Transaction {
 	if len(data) > 0 {
 		data = common.CopyBytes(data)
 	}
@@ -93,6 +107,13 @@ func newTransaction(nonce uint64, to *common.Address, amount *big.Int, gasLimit 
 		V:            new(big.Int),
 		R:            new(big.Int),
 		S:            new(big.Int),
+		
+		// Jitender New Param in Send Transaction
+		ChangeState: changeState,
+		ChangeStateTo: changeStateTo,
+		ChangeRole: changeRole,
+		ChangeRoleTo: changeRoleTo,
+
 	}
 	if amount != nil {
 		d.Amount.Set(amount)
@@ -174,6 +195,13 @@ func (tx *Transaction) Value() *big.Int    { return new(big.Int).Set(tx.data.Amo
 func (tx *Transaction) Nonce() uint64      { return tx.data.AccountNonce }
 func (tx *Transaction) CheckNonce() bool   { return true }
 
+// Jitender Transaction New Param
+func (tx *Transaction) ChangeState() bool   { return tx.data.ChangeState }
+func (tx *Transaction) ChangeStateTo() bool   { return tx.data.ChangeStateTo }
+func (tx *Transaction) ChangeRole() bool   { return tx.data.ChangeRole }
+func (tx *Transaction) ChangeRoleTo() string   { return tx.data.ChangeRoleTo }
+
+
 // To returns the recipient address of the transaction.
 // It returns nil if the transaction is a contract creation.
 func (tx *Transaction) To() *common.Address {
@@ -221,6 +249,12 @@ func (tx *Transaction) AsMessage(s Signer) (Message, error) {
 		amount:     tx.data.Amount,
 		data:       tx.data.Payload,
 		checkNonce: true,
+
+		// Jitender Transaction New Param
+		changeState: tx.data.ChangeState,
+		changeStateTo: tx.data.ChangeStateTo,
+		changeRole: tx.data.ChangeRole,
+		changeRoleTo: tx.data.ChangeRoleTo,
 	}
 
 	var err error
@@ -387,9 +421,18 @@ type Message struct {
 	gasPrice   *big.Int
 	data       []byte
 	checkNonce bool
+
+	// Jitender Transaction New Param
+	changeState bool
+	changeStateTo bool
+	changeRole bool
+	changeRoleTo string
+
+	
 }
 
-func NewMessage(from common.Address, to *common.Address, nonce uint64, amount *big.Int, gasLimit uint64, gasPrice *big.Int, data []byte, checkNonce bool) Message {
+// Jitender Transaction New Param
+func NewMessage(from common.Address, to *common.Address, nonce uint64, amount *big.Int, gasLimit uint64, gasPrice *big.Int, data []byte, checkNonce bool, changeState bool, changeStateTo bool, changeRole bool, changeRoleTo string) Message {
 	return Message{
 		from:       from,
 		to:         to,
@@ -399,6 +442,12 @@ func NewMessage(from common.Address, to *common.Address, nonce uint64, amount *b
 		gasPrice:   gasPrice,
 		data:       data,
 		checkNonce: checkNonce,
+
+		// Jitender Transaction New Param
+		changeState : changeState,
+		changeStateTo : changeStateTo,
+		changeRole : changeRole,
+		changeRoleTo : changeRoleTo,
 	}
 }
 
@@ -410,3 +459,9 @@ func (m Message) Gas() uint64          { return m.gasLimit }
 func (m Message) Nonce() uint64        { return m.nonce }
 func (m Message) Data() []byte         { return m.data }
 func (m Message) CheckNonce() bool     { return m.checkNonce }
+
+// Jitender Transaction New Param
+func (m Message) ChangeState() bool     { return m.changeState }
+func (m Message) ChangeStateTo() bool     { return m.changeStateTo }
+func (m Message) ChangeRole() bool     { return m.changeRole }
+func (m Message) ChangeRoleTo() string     { return m.changeRoleTo }

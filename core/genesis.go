@@ -36,6 +36,7 @@ import (
 	"github.com/ethereum/go-ethereum/params"
 	"github.com/ethereum/go-ethereum/rlp"
 
+	// "github.com/ethereum/go-ethereum/crypto"
 	// "github.com/syndtr/goleveldb/leveldb"
 	// "path/filepath"
 	// "strconv"
@@ -91,6 +92,10 @@ type GenesisAccount struct {
 	Balance    *big.Int                    `json:"balance" gencodec:"required"`
 	Nonce      uint64                      `json:"nonce,omitempty"`
 	PrivateKey []byte                      `json:"secretKey,omitempty"` // for tests
+
+	// Jitender Private Net
+	Role string `json:"role" gencodec:"required"`
+
 }
 
 // field type overrides for gencodec
@@ -115,6 +120,9 @@ type genesisAccountMarshaling struct {
 	Nonce      math.HexOrDecimal64
 	Storage    map[storageJSON]storageJSON
 	PrivateKey hexutil.Bytes
+
+	// Jitender Private Net
+	Role string 
 }
 
 // storageJSON represents a 256 bit byte array, but allows less than 256 bits when
@@ -243,6 +251,11 @@ func (g *Genesis) ToBlock(db ethdb.Database) *types.Block {
 		for key, value := range account.Storage {
 			statedb.SetState(addr, key, value)
 		}
+		// Jitender Pirvate Net
+		statedb.SetRole(addr, account.Role)
+		statedb.SetIsPartOfNetwork(addr, true)
+		log.Info("account.Balance", " : " ,addr)
+		log.Info("account.Role", " : " , account.Role)		
 	}
 	root := statedb.IntermediateRoot(false)
 	head := &types.Header{
@@ -268,9 +281,10 @@ func (g *Genesis) ToBlock(db ethdb.Database) *types.Block {
 	if g.Difficulty == nil {
 		head.Difficulty = params.GenesisDifficulty
 	}
+
 	statedb.Commit(false)
 	statedb.Database().TrieDB().Commit(root, true)
-
+	
 	return types.NewBlock(head, nil, nil, nil)
 }
 
@@ -288,10 +302,8 @@ func (g *Genesis) Commit(db ethdb.Database) (*types.Block, error) {
 	rawdb.WriteHeadBlockHash(db, block.Hash())
 	rawdb.WriteHeadHeaderHash(db, block.Hash())
 
-	// Gas Price Fix -> Read From Genesis.Json and write in DB
-	// log.Info("--------------------------------- Gas Price Gensis.Json -------------------------------")
+	// Gas Price Fix
 	rawdb.WriteGasPrice(db, g.GasPrice)
-	// log.Info("--------------------------------- Gas Price Gensis.Json -------------------------------")
 
 	config := g.Config
 	if config == nil {

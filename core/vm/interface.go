@@ -25,6 +25,15 @@ import (
 
 // StateDB is an EVM database for full state querying.
 type StateDB interface {
+
+
+	// Jitender - Private Netowrk
+	SetIsPartOfNetwork(common.Address, bool)
+	GetIsPartOfNetwork(common.Address) bool
+	SetRole(common.Address, string)
+	GetRole(common.Address) string
+
+
 	CreateAccount(common.Address)
 
 	SubBalance(common.Address, *big.Int)

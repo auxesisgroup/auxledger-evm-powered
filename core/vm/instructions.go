@@ -740,7 +740,8 @@ func opCall(pc *uint64, interpreter *EVMInterpreter, contract *Contract, memory 
 	if value.Sign() != 0 {
 		gas += params.CallStipend
 	}
-	ret, returnGas, err := interpreter.evm.Call(contract, toAddr, args, gas, value)
+	// Jitender Private Net New Params TODO
+	ret, returnGas, err := interpreter.evm.Call(contract, toAddr, args, gas, value, false, false, false, "")
 	if err != nil {
 		stack.push(interpreter.intPool.getZero())
 	} else {

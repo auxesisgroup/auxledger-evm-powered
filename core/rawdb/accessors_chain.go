@@ -273,10 +273,20 @@ func WriteGasPrice(db DatabaseWriter, GasPrice uint64) {
 // Gas Price Fix
 func ReadGasPrice(db DatabaseReader) uint64{
 	data, _ := db.Get([]byte("GasPrice"))
-	if len(data) == 0 {
-		return 0
-	}
 	return new(big.Int).SetBytes(data).Uint64()
+}
+
+// Test - Write Data
+func WriteNodes(db DatabaseWriter, nodes []byte) {
+	if err := db.Put([]byte("PrivateNodes"), nodes); err != nil {
+		log.Crit("Failed to store Private Node", "err", err)
+	}
+}
+
+// Test - Read Data
+func ReadNodes(db DatabaseReader) string{
+	data, _ := db.Get([]byte("PrivateNodes"))
+	return string(data)
 }
 
 // DeleteTd removes all block total difficulty data associated with a hash.

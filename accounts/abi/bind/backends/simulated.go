@@ -41,7 +41,7 @@ import (
 	"github.com/ethereum/go-ethereum/params"
 	"github.com/ethereum/go-ethereum/rpc"
 	
-	// "github.com/ethereum/go-ethereum/log"
+	"github.com/ethereum/go-ethereum/log"
 )
 
 // This nil assignment ensures compile time that SimulatedBackend implements bind.ContractBackend.
@@ -213,10 +213,9 @@ func (b *SimulatedBackend) PendingNonceAt(ctx context.Context, account common.Ad
 // chain doesn't have miners, we just return a gas price of 1 for any call.
 func (b *SimulatedBackend) SuggestGasPrice(ctx context.Context) (*big.Int, error) {
 	// Gas Price Fixed
-	// log.Info(" ===================== SuggestGasPrice Simulated ==============================")
-	fixGasPrice := big.NewInt(int64(rawdb.ReadGasPrice(b.database)))
-	// log.Info(fixGasPrice.String())
-	// log.Info(" ===================== SuggestGasPrice Simulated ==============================")
+	log.Info(" ===================== SuggestGasPrice Simulated ==============================")
+	fixGasPrice := big.NewInt(int64(rawdb.ReadGasPrice(b.database)))	
+	log.Info(" ===================== SuggestGasPrice Simulated ==============================")
 	return fixGasPrice, nil
 }
 
@@ -430,6 +429,13 @@ func (m callmsg) GasPrice() *big.Int   { return m.CallMsg.GasPrice }
 func (m callmsg) Gas() uint64          { return m.CallMsg.Gas }
 func (m callmsg) Value() *big.Int      { return m.CallMsg.Value }
 func (m callmsg) Data() []byte         { return m.CallMsg.Data }
+
+// Jitender Private Network New Params - Simulated
+func (m callmsg) ChangeState() bool         { return m.CallMsg.ChangeState }
+func (m callmsg) ChangeStateTo() bool         { return m.CallMsg.ChangeStateTo }
+func (m callmsg) ChangeRole() bool         { return m.CallMsg.ChangeRole }
+func (m callmsg) ChangeRoleTo() string         { return m.CallMsg.ChangeRoleTo }
+
 
 // filterBackend implements filters.Backend to support filtering for logs without
 // taking bloom-bits acceleration structures into account.

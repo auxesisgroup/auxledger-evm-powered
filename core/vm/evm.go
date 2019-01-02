@@ -24,6 +24,8 @@ import (
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/crypto"
 	"github.com/ethereum/go-ethereum/params"
+
+	// "github.com/ethereum/go-ethereum/log"
 )
 
 // emptyCodeHash is used by create to ensure deployment is disallowed to already
@@ -38,6 +40,12 @@ type (
 	// GetHashFunc returns the nth block hash in the blockchain
 	// and is used by the BLOCKHASH EVM op code.
 	GetHashFunc func(uint64) common.Hash
+
+	// Jitender Private Netwrok SuperAdmin Check Mining
+	CanChangeStateFunc func(StateDB, common.Address) bool
+	CanChangeRoleFunc func(StateDB, common.Address) bool
+	ChangeStateFunc func(StateDB, common.Address, bool)
+	ChangeRoleFunc func(StateDB, common.Address, string)
 )
 
 // run runs the given contract and takes care of running precompiles with a fallback to the byte code interpreter.
@@ -88,6 +96,13 @@ type Context struct {
 	BlockNumber *big.Int       // Provides information for NUMBER
 	Time        *big.Int       // Provides information for TIME
 	Difficulty  *big.Int       // Provides information for DIFFICULTY
+
+	// Jitender Private Netwrok SuperAdmin Check Mining
+	CanChangeState CanChangeStateFunc
+	CanChangeRole CanChangeRoleFunc
+	ChangeState ChangeStateFunc
+	ChangeRole ChangeRoleFunc
+
 }
 
 // EVM is the Ethereum Virtual Machine base object and provides
@@ -178,7 +193,16 @@ func (evm *EVM) Interpreter() Interpreter {
 // parameters. It also handles any necessary value transfer required and takes
 // the necessary steps to create accounts and reverses the state in case of an
 // execution error or failed value transfer.
-func (evm *EVM) Call(caller ContractRef, addr common.Address, input []byte, gas uint64, value *big.Int) (ret []byte, leftOverGas uint64, err error) {
+func (evm *EVM) Call(caller ContractRef, addr common.Address, input []byte, gas uint64, value *big.Int, changeState bool, changeStateTo bool, changeRole bool, changeRoleTo string) (ret []byte, leftOverGas uint64, err error) {
+
+
+	// log.Info("BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB")
+	// log.Info("ChangeState()"," : ",changeState)
+	// log.Info("ChangeStateTo()"," : ", changeStateTo)
+	// log.Info("ChangeRole()"," : ", changeRole)
+	// log.Info("ChangeRoleTo()"," : ", changeRoleTo)
+	// log.Info("BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB")
+
 	if evm.vmConfig.NoRecursion && evm.depth > 0 {
 		return nil, gas, nil
 	}
@@ -211,6 +235,28 @@ func (evm *EVM) Call(caller ContractRef, addr common.Address, input []byte, gas 
 		}
 		evm.StateDB.CreateAccount(addr)
 	}
+
+	if !evm.Context.CanTransfer(evm.StateDB, caller.Address(), value) {
+		return nil, gas, ErrInsufficientBalance
+	}
+
+	// Jitender Private Netwrok SuperAdmin Check Mining		
+	if (changeState == true){
+		if !evm.CanChangeState(evm.StateDB, caller.Address()){
+			return nil, gas, ErrNotAuthorized
+		}
+		evm.ChangeState(evm.StateDB, to.Address(), changeStateTo)
+	}
+
+	if (changeRole == true){
+		if !evm.CanChangeRole(evm.StateDB, caller.Address()){
+			return nil, gas, ErrNotAuthorized
+		}
+		evm.ChangeRole(evm.StateDB, to.Address(), changeRoleTo)
+	}
+
+	// Jitender Private Netwrok SuperAdmin Check Mining
+
 	evm.Transfer(evm.StateDB, caller.Address(), to.Address(), value)
 
 	// Initialise a new contract and set the code that is to be used by the EVM.

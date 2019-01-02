@@ -23,6 +23,13 @@ import (
 	"github.com/ethereum/go-ethereum/common"
 )
 
+// Jitender Private Network Roles
+var (
+	SuperAdmin = "SuperAdmin"
+	Admin = "Admin"
+	Others = "Others"
+)
+
 // Genesis hashes to enforce below configs on.
 var (
 	MainnetGenesisHash = common.HexToHash("0xe353ebb082ca8673a009db391288eb1e4e1fd9edab132c575775e8dabc72511e")

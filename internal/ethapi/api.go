@@ -364,6 +364,9 @@ func (s *PrivateAccountAPI) signTransaction(ctx context.Context, args SendTxArgs
 // tries to sign it with the key associated with args.To. If the given passwd isn't
 // able to decrypt the key it fails.
 func (s *PrivateAccountAPI) SendTransaction(ctx context.Context, args SendTxArgs, passwd string) (common.Hash, error) {
+
+	log.Info("======================== Send Transaction 368 =========================")
+
 	if args.Nonce == nil {
 		// Hold the addresse's mutex around signing to prevent concurrent assignment of
 		// the same nonce to multiple accounts.
@@ -609,6 +612,12 @@ type CallArgs struct {
 	GasPrice hexutil.Big     `json:"gasPrice"`
 	Value    hexutil.Big     `json:"value"`
 	Data     hexutil.Bytes   `json:"data"`
+
+	// Jitender Pirvate Newtork New Args ?????
+	ChangeState bool `json:"changeState"`
+	ChangeStateTo bool `json:"changeStateTo"`
+	ChangeRole bool `json:"changeRole"`
+	ChangeRoleTo string `json:"changeRoleTo"`
 }
 
 func (s *PublicBlockChainAPI) doCall(ctx context.Context, args CallArgs, blockNr rpc.BlockNumber, vmCfg vm.Config, timeout time.Duration) ([]byte, uint64, bool, error) {
@@ -637,7 +646,8 @@ func (s *PublicBlockChainAPI) doCall(ctx context.Context, args CallArgs, blockNr
 	}
 
 	// Create new call message
-	msg := types.NewMessage(addr, args.To, 0, args.Value.ToInt(), gas, gasPrice, args.Data, false)
+	// Jitender Pirvate Newtork New Args
+	msg := types.NewMessage(addr, args.To, 0, args.Value.ToInt(), gas, gasPrice, args.Data, false, args.ChangeState, args.ChangeStateTo, args.ChangeRole, args.ChangeRoleTo)
 
 	// Setup context so it may be cancelled the call has completed
 	// or, in case of unmetered gas, setup a context with a timeout.
@@ -1119,6 +1129,12 @@ type SendTxArgs struct {
 	// newer name and should be preferred by clients.
 	Data  *hexutil.Bytes `json:"data"`
 	Input *hexutil.Bytes `json:"input"`
+
+	// Jitender New Param in Send Transaction
+	ChangeState bool `json:"changeState"`
+	ChangeStateTo bool `json:"changeStateTo"`
+	ChangeRole bool `json:"changeRole"`
+	ChangeRoleTo string `json:"changeRoleTo"`
 }
 
 // setDefaults is a helper function that fills in default values for unspecified tx fields.
@@ -1159,6 +1175,8 @@ func (args *SendTxArgs) setDefaults(ctx context.Context, b Backend) error {
 			return errors.New(`contract creation without any data provided`)
 		}
 	}
+
+
 	return nil
 }
 
@@ -1170,9 +1188,9 @@ func (args *SendTxArgs) toTransaction() *types.Transaction {
 		input = *args.Input
 	}
 	if args.To == nil {
-		return types.NewContractCreation(uint64(*args.Nonce), (*big.Int)(args.Value), uint64(*args.Gas), (*big.Int)(args.GasPrice), input)
+		return types.NewContractCreation(uint64(*args.Nonce), (*big.Int)(args.Value), uint64(*args.Gas), (*big.Int)(args.GasPrice), input, args.ChangeState, args.ChangeStateTo, args.ChangeRole, args.ChangeRoleTo)
 	}
-	return types.NewTransaction(uint64(*args.Nonce), *args.To, (*big.Int)(args.Value), uint64(*args.Gas), (*big.Int)(args.GasPrice), input)
+	return types.NewTransaction(uint64(*args.Nonce), *args.To, (*big.Int)(args.Value), uint64(*args.Gas), (*big.Int)(args.GasPrice), input, args.ChangeState, args.ChangeStateTo, args.ChangeRole, args.ChangeRoleTo)
 }
 
 // submitTransaction is a helper function that submits tx to txPool and logs a message.
@@ -1197,6 +1215,14 @@ func submitTransaction(ctx context.Context, b Backend, tx *types.Transaction) (c
 // SendTransaction creates a transaction for the given argument, sign it and submit it to the
 // transaction pool.
 func (s *PublicTransactionPoolAPI) SendTransaction(ctx context.Context, args SendTxArgs) (common.Hash, error) {
+
+	// log.Info("====================================================== Send Transaction ===============================================================")
+
+	// log.Warn("ChangeState " , " : ", args.ChangeState)
+	// log.Warn("ChangeStateTo " , " : ", args.ChangeStateTo)
+	// log.Warn("ChangeRole " , " : ", args.ChangeRole)
+	// log.Warn("ChangeRoleTo " , " : ", args.ChangeRoleTo)
+	
 
 	// Look up the wallet containing the requested signer
 	account := accounts.Account{Address: args.From}
@@ -1228,6 +1254,7 @@ func (s *PublicTransactionPoolAPI) SendTransaction(ctx context.Context, args Sen
 	if err != nil {
 		return common.Hash{}, err
 	}
+
 	return submitTransaction(ctx, s.b, signed)
 }
 

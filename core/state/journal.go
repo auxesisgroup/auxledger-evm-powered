@@ -20,6 +20,8 @@ import (
 	"math/big"
 
 	"github.com/ethereum/go-ethereum/common"
+
+	// "github.com/ethereum/go-ethereum/log"
 )
 
 // journalEntry is a modification entry in the state change journal that can be
@@ -98,6 +100,18 @@ type (
 		prevbalance *big.Int
 	}
 
+	// Jitender - Private
+	isPartOfNetworkChange struct {
+		account  *common.Address
+		prev    bool
+	}
+
+	roleChange struct {
+		account  *common.Address
+		prev    string
+	}
+	// Jitender - Private
+
 	// Changes to individual accounts.
 	balanceChange struct {
 		account *common.Address
@@ -170,6 +184,27 @@ func (ch touchChange) revert(s *StateDB) {
 func (ch touchChange) dirtied() *common.Address {
 	return ch.account
 }
+
+
+// Test Jitender
+func (ch isPartOfNetworkChange) revert(s *StateDB) {
+	s.getStateObject(*ch.account).setIsPartOfNetwork(ch.prev)
+}
+
+func (ch isPartOfNetworkChange) dirtied() *common.Address {
+	return ch.account
+}
+
+func (ch roleChange) revert(s *StateDB) {
+	s.getStateObject(*ch.account).setRole(ch.prev)
+}
+
+func (ch roleChange) dirtied() *common.Address {
+	return ch.account
+}
+
+// Test Jitender
+
 
 func (ch balanceChange) revert(s *StateDB) {
 	s.getStateObject(*ch.account).setBalance(ch.prev)

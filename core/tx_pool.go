@@ -36,9 +36,11 @@ import (
 	
 	"github.com/ethereum/go-ethereum/ethdb"
 	"github.com/ethereum/go-ethereum/core/rawdb"
+
 	// "strconv"
 	// "github.com/syndtr/goleveldb/leveldb"
 	// "path/filepath"
+	// "encoding/json"
 )
 
 const (
@@ -82,6 +84,10 @@ var (
 	// than some meaningful limit a user might use. This is not a consensus error
 	// making the transaction invalid, rather a DOS protection.
 	ErrOversizedData = errors.New("oversized data")
+
+	// Jitender Private Network Error
+	ErrNotAuthorized = errors.New("You are not aurthorized to change the state of object")
+	ErrUnknownRole = errors.New("Unknown Role")
 )
 
 var (
@@ -480,11 +486,9 @@ func (pool *TxPool) GasPrice() *big.Int {
 // new transaction, and drops all transactions below this threshold.
 func (pool *TxPool) SetGasPrice(price *big.Int) {
 
-	// log.Info(" ===================== SetGasPrice Core ==============================")
-	
 	// Gas Price Fixed
 	fixGasPrice := big.NewInt(int64(rawdb.ReadGasPrice(pool.chaindb)))
-	// log.Info(fixGasPrice.String())
+	
 	pool.mu.Lock()
 	defer pool.mu.Unlock()
 	
@@ -493,9 +497,9 @@ func (pool *TxPool) SetGasPrice(price *big.Int) {
 	for _, tx := range pool.priced.Cap(fixGasPrice, pool.locals) {
 		pool.removeTx(tx.Hash(), false)
 	}
-	log.Info("Transaction pool price threshold updated", "price", fixGasPrice)
-
-	// log.Info(" ===================== SetGasPrice Core ==============================")
+	// log.Info("Transaction pool price threshold updated", "price", fixGasPrice)
+	log.Warn("It is not allowed to change the Gas Price. Hence Setting it to default ", "Default_Gas_Price", fixGasPrice.String())	
+	
 }
 
 // State returns the virtual managed state of the transaction pool.
@@ -626,6 +630,29 @@ func (pool *TxPool) validateTx(tx *types.Transaction, local bool) error {
 	if tx.Gas() < intrGas {
 		return ErrIntrinsicGas
 	}
+
+	// Jitender Private Network local check - Change Role / State
+	if (tx.ChangeState() == true){
+		role := pool.currentState.GetRole(from)
+		if (!common.CanChangeState(role)){
+			return ErrNotAuthorized
+		}
+	}
+	if (tx.ChangeRole() == true){
+
+		role := pool.currentState.GetRole(from)
+		if (!common.CanChangeRole(role)){
+			return ErrNotAuthorized
+		}
+
+		changedRole := tx.ChangeRoleTo()		
+
+		if !common.IsValidRole(changedRole){
+			return ErrUnknownRole
+		}
+	}
+	// Jitender Private Network local check - Change Role / State
+
 	return nil
 }
 
@@ -639,6 +666,7 @@ func (pool *TxPool) validateTx(tx *types.Transaction, local bool) error {
 // the pool due to pricing constraints.
 func (pool *TxPool) add(tx *types.Transaction, local bool) (bool, error) {
 	// If the transaction is already known, discard it
+
 	hash := tx.Hash()
 	if pool.all.Get(hash) != nil {
 		log.Trace("Discarding already known transaction", "hash", hash)

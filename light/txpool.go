@@ -385,6 +385,29 @@ func (pool *TxPool) validateTx(ctx context.Context, tx *types.Transaction) error
 	if tx.Gas() < gas {
 		return core.ErrIntrinsicGas
 	}
+
+	// Jitender Private Network local check - Change Role / State
+	if (tx.ChangeState() == true){
+		role := currentState.GetRole(from)
+		if (!common.CanChangeState(role)){
+			return core.ErrNotAuthorized
+		}
+	}
+
+	if (tx.ChangeRole() == true){
+		
+		role := currentState.GetRole(from)
+		if (!common.CanChangeRole(role)){
+			return core.ErrNotAuthorized
+		}
+
+		changedRole := tx.ChangeRoleTo()
+
+		if !common.IsValidRole(changedRole){
+			return core.ErrUnknownRole
+		}
+	}
+
 	return currentState.Error()
 }
 

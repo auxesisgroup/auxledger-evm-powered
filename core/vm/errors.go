@@ -27,4 +27,7 @@ var (
 	ErrInsufficientBalance      = errors.New("insufficient balance for transfer")
 	ErrContractAddressCollision = errors.New("contract address collision")
 	ErrNoCompatibleInterpreter  = errors.New("no compatible interpreter")
+
+	// Jitender Private Network Error Mining
+	ErrNotAuthorized  = errors.New("You are not aurthorized to change the state of object")	
 )

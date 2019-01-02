@@ -199,7 +199,8 @@ type Transaction struct {
 
 // NewTransaction creates a new transaction with the given properties.
 func NewTransaction(nonce int64, to *Address, amount *BigInt, gasLimit int64, gasPrice *BigInt, data []byte) *Transaction {
-	return &Transaction{types.NewTransaction(uint64(nonce), to.address, amount.bigint, uint64(gasLimit), gasPrice.bigint, common.CopyBytes(data))}
+	// TODO Jitender New Param in Send Transaction - TODO
+	return &Transaction{types.NewTransaction(uint64(nonce), to.address, amount.bigint, uint64(gasLimit), gasPrice.bigint, common.CopyBytes(data), false, false, false, "")}
 }
 
 // NewTransactionFromRLP parses a transaction from an RLP data dump.

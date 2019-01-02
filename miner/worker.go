@@ -35,6 +35,8 @@ import (
 	"github.com/ethereum/go-ethereum/event"
 	"github.com/ethereum/go-ethereum/log"
 	"github.com/ethereum/go-ethereum/params"
+
+	// "github.com/ethereum/go-ethereum/crypto"
 )
 
 const (
@@ -222,8 +224,8 @@ func newWorker(config *params.ChainConfig, engine consensus.Engine, eth Backend,
 	go worker.taskLoop()
 
 	// Submit first work to initialize pending state.
-	worker.startCh <- struct{}{}
 
+	worker.startCh <- struct{}{}
 	return worker
 }
 
@@ -267,6 +269,7 @@ func (w *worker) pendingBlock() *types.Block {
 
 // start sets the running status as 1 and triggers new work submitting.
 func (w *worker) start() {
+	log.Info("------------------------ Worker.Start -------------------------------")
 	atomic.StoreInt32(&w.running, 1)
 	w.startCh <- struct{}{}
 }
@@ -341,18 +344,22 @@ func (w *worker) newWorkLoop(recommit time.Duration) {
 	}
 
 	for {
+		log.Info("------------------------ newWorkLoop -------------------------------")
 		select {
 		case <-w.startCh:
+			log.Info("------------------------ newWorkLoop case <-w.startCh: -------------------------------")
 			clearPending(w.chain.CurrentBlock().NumberU64())
 			timestamp = time.Now().Unix()
 			commit(false, commitInterruptNewHead)
 
 		case head := <-w.chainHeadCh:
+			log.Info("------------------------ newWorkLoop case head := <-w.chainHeadCh:-------------------------------")
 			clearPending(head.Block.NumberU64())
 			timestamp = time.Now().Unix()
 			commit(false, commitInterruptNewHead)
 
 		case <-timer.C:
+			log.Info("------------------------ newWorkLoop case <-timer.C: -------------------------------")
 			// If mining is running resubmit a new work cycle periodically to pull in
 			// higher priced transactions. Disable this overhead for pending blocks.
 			if w.isRunning() && (w.config.Clique == nil || w.config.Clique.Period > 0) {
@@ -365,6 +372,7 @@ func (w *worker) newWorkLoop(recommit time.Duration) {
 			}
 
 		case interval := <-w.resubmitIntervalCh:
+			log.Info("------------------------ newWorkLoop case interval := <-w.resubmitIntervalCh: -------------------------------")
 			// Adjust resubmit interval explicitly by user.
 			if interval < minRecommitInterval {
 				log.Warn("Sanitizing miner recommit interval", "provided", interval, "updated", minRecommitInterval)
@@ -378,6 +386,7 @@ func (w *worker) newWorkLoop(recommit time.Duration) {
 			}
 
 		case adjust := <-w.resubmitAdjustCh:
+			log.Info("------------------------ newWorkLoop case adjust := <-w.resubmitAdjustCh: -------------------------------")
 			// Adjust resubmit interval by feedback.
 			if adjust.inc {
 				before := recommit
@@ -394,6 +403,7 @@ func (w *worker) newWorkLoop(recommit time.Duration) {
 			}
 
 		case <-w.exitCh:
+			log.Info("------------------------ newWorkLoop case <-w.exitCh: -------------------------------")
 			return
 		}
 	}
@@ -406,11 +416,14 @@ func (w *worker) mainLoop() {
 	defer w.chainSideSub.Unsubscribe()
 
 	for {
+		log.Info("------------------------ mainLoop -------------------------------")
 		select {
 		case req := <-w.newWorkCh:
+			log.Info("------------------------ mainLoop case req := <-w.newWorkCh: -------------------------------")
 			w.commitNewWork(req.interrupt, req.noempty, req.timestamp)
 
 		case ev := <-w.chainSideCh:
+			log.Info("------------------------ mainLoop case ev := <-w.chainSideCh: -------------------------------")
 			// Short circuit for duplicate side blocks
 			if _, exist := w.localUncles[ev.Block.Hash()]; exist {
 				continue
@@ -450,6 +463,7 @@ func (w *worker) mainLoop() {
 			}
 
 		case ev := <-w.txsCh:
+			log.Info("------------------------ mainLoop case ev := <-w.txsCh: -------------------------------")
 			// Apply transactions to the pending state if we're not mining.
 			//
 			// Note all transactions received may not be continuous with transactions
@@ -478,12 +492,16 @@ func (w *worker) mainLoop() {
 
 		// System stopped
 		case <-w.exitCh:
+			log.Info("------------------------ mainLoop case <-w.exitCh: -------------------------------")
 			return
 		case <-w.txsSub.Err():
+			log.Info("------------------------ mainLoop case <-w.txsSub.Err(): -------------------------------")
 			return
 		case <-w.chainHeadSub.Err():
+			log.Info("------------------------ mainLoop case <-w.chainHeadSub.Err(): -------------------------------")
 			return
 		case <-w.chainSideSub.Err():
+			log.Info("------------------------ mainLoop case <-w.chainSideSub.Err(): -------------------------------")
 			return
 		}
 	}
@@ -505,8 +523,10 @@ func (w *worker) taskLoop() {
 		}
 	}
 	for {
+		log.Info("------------------------ taskLoop -------------------------------")
 		select {
 		case task := <-w.taskCh:
+			log.Info("------------------------ taskLoop case task := <-w.taskCh: -------------------------------")
 			if w.newTaskHook != nil {
 				w.newTaskHook(task)
 			}
@@ -528,8 +548,10 @@ func (w *worker) taskLoop() {
 
 			if err := w.engine.Seal(w.chain, task.block, w.resultCh, stopCh); err != nil {
 				log.Warn("Block sealing failed", "err", err)
-			}
+			}			
+
 		case <-w.exitCh:
+			log.Info("------------------------ taskLoop case <-w.exitCh: ------------------------------")
 			interrupt()
 			return
 		}
@@ -540,8 +562,10 @@ func (w *worker) taskLoop() {
 // and flush relative data to the database.
 func (w *worker) resultLoop() {
 	for {
+		log.Info("------------------------ resultLoop -------------------------------")
 		select {
 		case block := <-w.resultCh:
+			log.Info("------------------------ resultLoop case block := <-w.resultCh: -------------------------------")
 			// Short circuit when receiving empty result.
 			if block == nil {
 				continue
@@ -602,6 +626,7 @@ func (w *worker) resultLoop() {
 			w.unconfirmed.Insert(block.NumberU64(), block.Hash())
 
 		case <-w.exitCh:
+			log.Info("------------------------ taskLoop  case <-w.exitCh: -------------------------------")
 			return
 		}
 	}
@@ -818,6 +843,7 @@ func (w *worker) commitTransactions(txs *types.TransactionsByPriceAndNonce, coin
 
 // commitNewWork generates several new sealing tasks based on the parent block.
 func (w *worker) commitNewWork(interrupt *int32, noempty bool, timestamp int64) {
+	
 	w.mu.RLock()
 	defer w.mu.RUnlock()
 
@@ -940,7 +966,7 @@ func (w *worker) commitNewWork(interrupt *int32, noempty bool, timestamp int64) 
 			return
 		}
 	}
-	w.commit(uncles, w.fullTaskHook, true, tstart)
+	w.commit(uncles, w.fullTaskHook, true, tstart)	
 }
 
 // commit runs any post-transaction state modifications, assembles the final block

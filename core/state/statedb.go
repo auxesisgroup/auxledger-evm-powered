@@ -200,7 +200,15 @@ func (self *StateDB) Empty(addr common.Address) bool {
 
 // Retrieve the balance from the given address or 0 if object not found
 func (self *StateDB) GetBalance(addr common.Address) *big.Int {
+
 	stateObject := self.getStateObject(addr)
+
+	// log.Info("****************************************************************************************************************************")
+	// log.Info("Address : ", " : ", addr)
+	// log.Info("IsPartOfNetwork ", " : ",self.GetIsPartOfNetwork(addr))
+	// log.Info("Role ", " : ",self.GetRole(addr))
+	// log.Info("****************************************************************************************************************************")
+
 	if stateObject != nil {
 		return stateObject.Balance()
 	}
@@ -292,6 +300,41 @@ func (self *StateDB) HasSuicided(addr common.Address) bool {
 /*
  * SETTERS
  */
+
+// Test Jitender
+func (self *StateDB) SetIsPartOfNetwork(addr common.Address, value bool) {
+	stateObject := self.GetOrNewStateObject(addr)
+	if stateObject != nil {
+		stateObject.WriteIsPartOfNetwork(value)		
+	}		
+}
+
+func (self *StateDB) GetIsPartOfNetwork(addr common.Address) bool {
+	stateObject := self.getStateObject(addr)
+	if stateObject != nil {
+		return stateObject.GetIsPartOfNetwork()
+	}	
+	return false
+}
+
+func (self *StateDB) SetRole(addr common.Address, value string) {
+	stateObject := self.GetOrNewStateObject(addr)
+	if stateObject != nil {
+		stateObject.WriteRole(value)		
+	}		
+}
+
+func (self *StateDB) GetRole(addr common.Address) string {
+	stateObject := self.getStateObject(addr)
+	if stateObject != nil {
+		return stateObject.GetRole()
+	}	
+	return ""
+}
+
+
+// Test Jitender
+
 
 // AddBalance adds amount to the account associated with addr.
 func (self *StateDB) AddBalance(addr common.Address, amount *big.Int) {
@@ -401,8 +444,9 @@ func (self *StateDB) getStateObject(addr common.Address) (stateObject *stateObje
 		return nil
 	}
 	// Insert into the live set.
+	
 	obj := newObject(self, addr, data)
-	self.setStateObject(obj)
+	self.setStateObject(obj)	
 	return obj
 }
 
@@ -485,6 +529,10 @@ func (self *StateDB) Copy() *StateDB {
 		preimages:         make(map[common.Hash][]byte),
 		journal:           newJournal(),
 	}
+
+	// log.Warn(" ------------------------ Copy ------------------------ ")
+	// log.Error("Length ", " : ", len(self.journal.dirties))
+
 	// Copy the dirty states, logs, and preimages
 	for addr := range self.journal.dirties {
 		// As documented [here](https://github.com/ethereum/go-ethereum/pull/16485#issuecomment-380438527),

@@ -21,6 +21,10 @@ func (g GenesisAccount) MarshalJSON() ([]byte, error) {
 		Balance    *math.HexOrDecimal256       `json:"balance" gencodec:"required"`
 		Nonce      math.HexOrDecimal64         `json:"nonce,omitempty"`
 		PrivateKey hexutil.Bytes               `json:"secretKey,omitempty"`
+
+		// Jitender Private Net
+		Role string `json:"role" gencodec:"required"`
+
 	}
 	var enc GenesisAccount
 	enc.Code = g.Code
@@ -33,6 +37,10 @@ func (g GenesisAccount) MarshalJSON() ([]byte, error) {
 	enc.Balance = (*math.HexOrDecimal256)(g.Balance)
 	enc.Nonce = math.HexOrDecimal64(g.Nonce)
 	enc.PrivateKey = g.PrivateKey
+
+	// Jitender Private Net
+	enc.Role = g.Role
+
 	return json.Marshal(&enc)
 }
 
@@ -43,6 +51,9 @@ func (g *GenesisAccount) UnmarshalJSON(input []byte) error {
 		Balance    *math.HexOrDecimal256       `json:"balance" gencodec:"required"`
 		Nonce      *math.HexOrDecimal64        `json:"nonce,omitempty"`
 		PrivateKey *hexutil.Bytes              `json:"secretKey,omitempty"`
+
+		// Jitender Private Net
+		Role string `json:"role" gencodec:"required"`
 	}
 	var dec GenesisAccount
 	if err := json.Unmarshal(input, &dec); err != nil {
@@ -67,5 +78,13 @@ func (g *GenesisAccount) UnmarshalJSON(input []byte) error {
 	if dec.PrivateKey != nil {
 		g.PrivateKey = *dec.PrivateKey
 	}
+
+	// Jitender Private Net
+	if dec.Role == "" {
+		return errors.New("missing required field 'balance' for GenesisAccount")
+	}
+	g.Role = dec.Role
+	
+
 	return nil
 }

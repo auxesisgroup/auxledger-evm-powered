@@ -45,6 +45,7 @@ import (
 )
 
 func main() {
+	log.Info("------------------------ Clique -------------------------------")
 	log.Root().SetHandler(log.LvlFilterHandler(log.LvlInfo, log.StreamHandler(os.Stderr, log.TerminalFormat(true))))
 	fdlimit.Raise(2048)
 

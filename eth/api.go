@@ -40,8 +40,10 @@ import (
 	"github.com/ethereum/go-ethereum/trie"
 
 	"github.com/ethereum/go-ethereum/core/rawdb"
-	"strconv"
+	// "encoding/json"
+	// "strconv"
 	"github.com/ethereum/go-ethereum/log"
+	// "github.com/ethereum/go-ethereum/crypto"
 )
 
 // PublicEthereumAPI provides an API to access Ethereum full node-related
@@ -103,6 +105,8 @@ func NewPrivateMinerAPI(e *Ethereum) *PrivateMinerAPI {
 // number of threads allowed to use and updates the minimum price required by the
 // transaction pool.
 func (api *PrivateMinerAPI) Start(threads *int) error {
+	// Jitender Mining Start Point
+	log.Info("------------------------ Start -------------------------------")
 	if threads == nil {
 		return api.e.StartMining(runtime.NumCPU())
 	}
@@ -127,7 +131,7 @@ func (api *PrivateMinerAPI) SetExtra(extra string) (bool, error) {
 func (api *PrivateMinerAPI) SetGasPrice(gasPrice hexutil.Big) bool {
 	
 	// Gas Price Fixed	
-	// log.Info(" ===================== SetGasPrice ==============================")
+	log.Info(" ===================== SetGasPrice ==============================")
 	
 	dbGasPrice := api.e.chainDb
 	fixGasPrice := rawdb.ReadGasPrice(dbGasPrice)	
@@ -137,8 +141,20 @@ func (api *PrivateMinerAPI) SetGasPrice(gasPrice hexutil.Big) bool {
 	api.e.lock.Unlock()
 	api.e.txPool.SetGasPrice(big.NewInt(int64(fixGasPrice)))
 
-	log.Warn("It is not allowed to change the Gas Price. Hence Setting it to default ", "Default_Gas_Price", strconv.FormatUint(fixGasPrice, 10))
-	// log.Info(" ===================== SetGasPrice ==============================")
+	// statedb
+	// key1, _ := crypto.HexToECDSA("b71c71a67e1177ad4e901695e1b4b9ee17ae16c6668d313eac2f96dbcda3f291")
+	// addr1 := crypto.PubkeyToAddress(key1.PublicKey)
+	// stateDb, err := api.e.blockchain.State()
+	
+	// if err != nil{
+	// 	log.Error("??????????????????????????", "err", err)		
+	// }
+
+	// log.Info("Is Part of the network ", " : ", stateDb.GetIsPartOfNetwork(addr1))
+	// log.Info(stateDb.GetBalance(addr1).String())
+	
+		
+	log.Info(" ===================== SetGasPrice ==============================")
 	return false
 }
 

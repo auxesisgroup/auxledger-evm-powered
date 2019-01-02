@@ -25,6 +25,9 @@ import (
 	"github.com/ethereum/go-ethereum/core/vm"
 	"github.com/ethereum/go-ethereum/log"
 	"github.com/ethereum/go-ethereum/params"
+
+	// "github.com/ethereum/go-ethereum/crypto"	
+	// "encoding/json"
 )
 
 var (
@@ -58,6 +61,12 @@ type StateTransition struct {
 	data       []byte
 	state      vm.StateDB
 	evm        *vm.EVM
+
+	// Jitender Private Network new Params
+	changeState bool
+	changeStateTo bool
+	changeRole bool
+	changeRoleTo string
 }
 
 // Message represents a message sent to a contract.
@@ -73,6 +82,13 @@ type Message interface {
 	Nonce() uint64
 	CheckNonce() bool
 	Data() []byte
+
+	// Jitender Private Network new Params
+	ChangeState() bool
+	ChangeStateTo() bool
+	ChangeRole() bool
+	ChangeRoleTo() string
+
 }
 
 // IntrinsicGas computes the 'intrinsic gas' for a message with the given data.
@@ -118,6 +134,13 @@ func NewStateTransition(evm *vm.EVM, msg Message, gp *GasPool) *StateTransition 
 		value:    msg.Value(),
 		data:     msg.Data(),
 		state:    evm.StateDB,
+		
+		// Jitender Private Network new Params
+		changeState: msg.ChangeState(),
+		changeStateTo: msg.ChangeStateTo(),
+		changeRole: msg.ChangeRole(),
+		changeRoleTo: msg.ChangeRoleTo(),
+
 	}
 }
 
@@ -210,7 +233,8 @@ func (st *StateTransition) TransitionDb() (ret []byte, usedGas uint64, failed bo
 	} else {
 		// Increment the nonce for the next transaction
 		st.state.SetNonce(msg.From(), st.state.GetNonce(sender.Address())+1)
-		ret, st.gas, vmerr = evm.Call(sender, st.to(), st.data, st.gas, st.value)
+		// Jitender Private Network New Params
+		ret, st.gas, vmerr = evm.Call(sender, st.to(), st.data, st.gas, st.value, st.changeState, st.changeStateTo, st.changeRole, st.changeRoleTo)
 	}
 	if vmerr != nil {
 		log.Debug("VM returned with error", "err", vmerr)

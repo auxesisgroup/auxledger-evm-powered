@@ -23,6 +23,10 @@ import (
 	"github.com/ethereum/go-ethereum/consensus"
 	"github.com/ethereum/go-ethereum/core/types"
 	"github.com/ethereum/go-ethereum/core/vm"
+
+	// "github.com/ethereum/go-ethereum/crypto"
+	// "github.com/ethereum/go-ethereum/log"
+	// "encoding/json"
 )
 
 // ChainContext supports retrieving headers and consensus parameters from the
@@ -55,6 +59,12 @@ func NewEVMContext(msg Message, header *types.Header, chain ChainContext, author
 		Difficulty:  new(big.Int).Set(header.Difficulty),
 		GasLimit:    header.GasLimit,
 		GasPrice:    new(big.Int).Set(msg.GasPrice()),
+
+		// Jitender Private Network Check Mining Side
+		CanChangeState : CanChangeState,
+		CanChangeRole: CanChangeRole,
+		ChangeState : ChangeState,
+		ChangeRole: ChangeRole,
 	}
 }
 
@@ -95,3 +105,30 @@ func Transfer(db vm.StateDB, sender, recipient common.Address, amount *big.Int) 
 	db.SubBalance(sender, amount)
 	db.AddBalance(recipient, amount)
 }
+
+
+// Jitender Private Network Check Mining Side
+func CanChangeState(db vm.StateDB, addr common.Address) bool {
+	role := db.GetRole(addr)
+	if common.CanChangeState(role){
+		return true
+	}
+	return false
+}
+
+func CanChangeRole(db vm.StateDB, addr common.Address) bool {
+	role := db.GetRole(addr)
+	if common.CanChangeRole(role){
+		return true
+	}
+	return false
+}
+
+func ChangeState(db vm.StateDB, recipient common.Address, state bool) {
+	db.SetIsPartOfNetwork(recipient, state)	
+}
+
+func ChangeRole(db vm.StateDB, recipient common.Address, role string) {
+	db.SetRole(recipient, role)
+}
+// Jitender Private Network Check Mining Side

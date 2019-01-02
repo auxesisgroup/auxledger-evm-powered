@@ -23,6 +23,8 @@ import (
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/rlp"
 	"github.com/ethereum/go-ethereum/trie"
+
+	"github.com/ethereum/go-ethereum/log"
 )
 
 type DumpAccount struct {
@@ -32,6 +34,9 @@ type DumpAccount struct {
 	CodeHash string            `json:"codeHash"`
 	Code     string            `json:"code"`
 	Storage  map[string]string `json:"storage"`
+
+	// Jitender
+	IsPartOfNetwork  bool `json:"bool"`
 }
 
 type Dump struct {
@@ -54,6 +59,7 @@ func (self *StateDB) RawDump() Dump {
 		}
 
 		obj := newObject(nil, common.BytesToAddress(addr), data)
+		log.Info("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ DUMP $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$")
 		account := DumpAccount{
 			Balance:  data.Balance.String(),
 			Nonce:    data.Nonce,
@@ -61,6 +67,9 @@ func (self *StateDB) RawDump() Dump {
 			CodeHash: common.Bytes2Hex(data.CodeHash),
 			Code:     common.Bytes2Hex(obj.Code(self.db)),
 			Storage:  make(map[string]string),
+
+			// Jitender
+			IsPartOfNetwork : data.IsPartOfNetwork,
 		}
 		storageIt := trie.NewIterator(obj.getTrie(self.db).NodeIterator(nil))
 		for storageIt.Next() {

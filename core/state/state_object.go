@@ -25,6 +25,7 @@ import (
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/crypto"
 	"github.com/ethereum/go-ethereum/rlp"
+	"github.com/ethereum/go-ethereum/log"
 )
 
 var emptyCodeHash = crypto.Keccak256(nil)
@@ -96,14 +97,26 @@ func (s *stateObject) empty() bool {
 // Account is the Ethereum consensus representation of accounts.
 // These objects are stored in the main account trie.
 type Account struct {
+
 	Nonce    uint64
 	Balance  *big.Int
 	Root     common.Hash // merkle root of the storage trie
 	CodeHash []byte
+
+	// Jitender - Private Network
+	IsPartOfNetwork bool
+	Role string
+	
+	// role string
+	// isPartOfNetwork bool
+	// enode string
 }
 
 // newObject creates a state object.
 func newObject(db *StateDB, address common.Address, data Account) *stateObject {
+	// log.Info("data.Address"," : ",address)
+	// log.Info("data.Balance"," : ",data.Balance)
+	// log.Info("data.list"," : ",data.List)
 	if data.Balance == nil {
 		data.Balance = new(big.Int)
 	}
@@ -218,6 +231,9 @@ func (self *stateObject) setState(key, value common.Hash) {
 func (self *stateObject) updateTrie(db Database) Trie {
 	tr := self.getTrie(db)
 	for key, value := range self.dirtyStorage {
+
+		log.Error("Key "," : ", key)
+		log.Error("value "," : ", value)
 		delete(self.dirtyStorage, key)
 
 		// Skip noop changes, persist actual changes
@@ -256,6 +272,53 @@ func (self *stateObject) CommitTrie(db Database) error {
 	}
 	return err
 }
+
+// Test Jitender
+func (c *stateObject) WriteIsPartOfNetwork(value bool) {
+	// TODO - Standard CHeck Pending
+	c.SetIsPartOfNetwork(value)	
+}
+
+func (self *stateObject) SetIsPartOfNetwork(value bool) {
+	self.db.journal.append(isPartOfNetworkChange{
+		account: &self.address,
+		prev:  self.data.IsPartOfNetwork,
+	})
+	self.setIsPartOfNetwork(value)
+}
+
+func (self *stateObject) setIsPartOfNetwork(value bool) {
+	self.data.IsPartOfNetwork = value
+	
+}
+
+func (self *stateObject) GetIsPartOfNetwork() bool{
+	return self.data.IsPartOfNetwork
+}
+
+func (c *stateObject) WriteRole(value string) {
+	// TODO - Standard CHeck Pending
+	c.SetRole(value)	
+}
+
+func (self *stateObject) SetRole(value string) {
+	self.db.journal.append(roleChange{
+		account: &self.address,
+		prev:  self.data.Role,
+	})
+	self.setRole(value)
+}
+
+func (self *stateObject) setRole(value string) {
+	self.data.Role = value	
+}
+
+func (self *stateObject) GetRole() string{
+	return self.data.Role
+}
+
+// Test Jitender
+
 
 // AddBalance removes amount from c's balance.
 // It is used to add funds to the destination account of a transfer.

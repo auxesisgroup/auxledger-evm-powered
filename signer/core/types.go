@@ -102,6 +102,12 @@ type SendTxArgs struct {
 	// We accept "data" and "input" for backwards-compatibility reasons.
 	Data  *hexutil.Bytes `json:"data"`
 	Input *hexutil.Bytes `json:"input"`
+
+	// Jitender New Param in Send Transaction
+	ChangeState bool `json:"changeState"`
+	ChangeStateTo bool `json:"changeStateTo"`
+	changeRole bool `json:"changeRole"`
+	changeRoleTo string `json:"changeRoleTo"`
 }
 
 func (args SendTxArgs) String() string {
@@ -120,7 +126,9 @@ func (args *SendTxArgs) toTransaction() *types.Transaction {
 		input = *args.Input
 	}
 	if args.To == nil {
-		return types.NewContractCreation(uint64(args.Nonce), (*big.Int)(&args.Value), uint64(args.Gas), (*big.Int)(&args.GasPrice), input)
+		// Jitender New Param in Send Transaction		
+		return types.NewContractCreation(uint64(args.Nonce), (*big.Int)(&args.Value), uint64(args.Gas), (*big.Int)(&args.GasPrice), input, args.ChangeState, args.ChangeStateTo, args.changeRole, args.changeRoleTo)
 	}
-	return types.NewTransaction(uint64(args.Nonce), args.To.Address(), (*big.Int)(&args.Value), (uint64)(args.Gas), (*big.Int)(&args.GasPrice), input)
+	// Jitender New Param in Send Transaction
+	return types.NewTransaction(uint64(args.Nonce), args.To.Address(), (*big.Int)(&args.Value), (uint64)(args.Gas), (*big.Int)(&args.GasPrice), input, args.ChangeState, args.ChangeStateTo, args.changeRole, args.changeRoleTo)
 }

@@ -83,6 +83,7 @@ func (set *unconfirmedBlocks) Insert(index uint64, hash common.Hash) {
 	}
 	// Display a log for the user to notify of a new mined block unconfirmed
 	log.Info("🔨 mined potential block", "number", index, "hash", hash)
+	log.Info("#############################################################################################################################################################################")
 }
 
 // Shift drops all unconfirmed blocks from the set which exceed the unconfirmed sets depth
